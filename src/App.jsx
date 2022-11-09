@@ -12,10 +12,12 @@ import EditarProducto from './components/views/producto/EditarProducto';
 import CrearPedido from './components/views/pedido/CrearPedido';
 import EditarPedido from './components/views/pedido/EditarPedido';
 import DetallePedido from './components/views/DetallePedido';
+import Error404 from './components/views/Error404';
 
 function App() {
   return (
     <BrowserRouter>
+    <Menu></Menu>
     <Routes>
       <Route exact path='/' element={<Inicio></Inicio>}></Route>
       <Route exact path='/administrador' element={<Administrador></Administrador>}></Route>
@@ -29,7 +31,9 @@ function App() {
       <Route exact path='/registro' element={<Registro></Registro>}></Route>
       <Route exact path='/menu' element={<Menu></Menu>}></Route>
       <Route exact path='/footer' element={<Footer></Footer>}></Route>
+      <Route exact path='*' element={<Error404></Error404>}></Route>
     </Routes>
+    <Footer></Footer>
     </BrowserRouter>
   );
 }
