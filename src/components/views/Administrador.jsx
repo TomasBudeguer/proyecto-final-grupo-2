@@ -44,6 +44,7 @@ const Administrador = () => {
           <thead className="bg-light border-dark">
             <tr>
               <th>Cod</th>
+              <th>Usuario</th>
               <th>Pedido</th>
               <th>Estado</th>
               <th>Opciones</th>

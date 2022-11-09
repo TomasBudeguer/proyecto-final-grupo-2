@@ -26,7 +26,7 @@ function App() {
       <Route exact path='/administrar/crear-producto' element={<CrearProducto></CrearProducto>}></Route>
       <Route exact path='/administrar/editar-producto/:id' element={<EditarProducto></EditarProducto>}></Route>
       <Route exact path='/detalle-pedido/:id' element={<DetallePedido></DetallePedido>}></Route>
-      <Route exact path='/administrar/crear-pedido' element={<CrearPedido></CrearPedido>}></Route>
+      <Route exact path='/crear-pedido' element={<CrearPedido></CrearPedido>}></Route>
       <Route exact path='/administrar/editar-pedido/:id' element={<EditarPedido></EditarPedido>}></Route>
       <Route exact path='/login' element={<Login></Login>}></Route>
       <Route exact path='/registro' element={<Registro></Registro>}></Route>

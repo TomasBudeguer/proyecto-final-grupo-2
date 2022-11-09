@@ -5,6 +5,7 @@ const ItemPedido = () => {
     return (
         <tr >
       <td>123</td>
+      <td>RollingUser</td>
       <td>1 pizza</td>
       <td>pendiente</td>
       <td>

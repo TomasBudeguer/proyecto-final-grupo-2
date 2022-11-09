@@ -11,7 +11,7 @@ const ItemProducto = () => {
       <td><p className="cortarText">https://media.istockphoto.com/photos/cheesy-pepperoni-pizza-picture-id938742222?b=1&k=20&m=938742222&s=612x612&w=0&h=As_a78KLnFXJnQJ25BzTOxk_mSThUBMF867kOEFrMyA=</p></td>
       <td>Salado</td>
       <td>
-        <Link className="btn btn-success me-2 mb-1" to={`/administrador`}>Editar</Link>
+        <Link className="btn btn-success me-2 mb-1" to={`/administrar/editar-producto/`}>Editar</Link>
         <Button variant="danger" className="mb-1">
           Borrar
         </Button>
