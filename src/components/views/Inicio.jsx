@@ -2,8 +2,19 @@ import { Container, Row } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
 import CardPedido from "./pedido/CardPedido";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { consultarAPI } from "../helpers/queries";
 
 const Inicio = () => {
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    consultarAPI().then((respuesta) => {
+      console.log(respuesta);
+      setProductos(respuesta);
+    });
+  }, []);
+
   return (
     <div className="mainSection">
       <Container>
@@ -12,7 +23,13 @@ const Inicio = () => {
         <div>
           <h2 className="text-center">Nuestros productos disponibles</h2>
           <Row>
-            <CardProducto></CardProducto>
+            {productos.map((producto) => (
+              <CardProducto
+                key={producto.id}
+                producto={producto}
+                setProductos={setProductos}
+              ></CardProducto>
+            ))}
           </Row>
         </div>
         <hr />
