@@ -1,10 +1,21 @@
+import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { consultarAPI } from "../helpers/queries";
 import ItemPedido from "./pedido/ItemPedido";
 import ItemProducto from "./producto/ItemProducto";
 import ItemUsuario from "./usuario/ItemUsuario";
 
 const Administrador = () => {
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    consultarAPI().then((respuesta) => {
+      console.log(respuesta);
+      setProductos(respuesta);
+    });
+  }, []);
+  
   return (
     <Container className="my-5 mainSection">
       <div>
@@ -32,7 +43,9 @@ const Administrador = () => {
             </tr>
           </thead>
           <tbody>
-            <ItemProducto></ItemProducto>
+          {productos.map((producto) => (
+            <ItemProducto key={producto._id} producto={producto} setProductos={setProductos}></ItemProducto>
+          ))}
           </tbody>
         </Table>
       </div>
