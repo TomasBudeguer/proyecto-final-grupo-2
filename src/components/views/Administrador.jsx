@@ -11,7 +11,6 @@ const Administrador = () => {
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
-      console.log(respuesta);
       setProductos(respuesta);
     });
   }, []);
@@ -44,7 +43,7 @@ const Administrador = () => {
           </thead>
           <tbody>
           {productos.map((producto) => (
-            <ItemProducto key={producto._id} producto={producto} setProductos={setProductos}></ItemProducto>
+            <ItemProducto key={producto.id} producto={producto} setProductos={setProductos}></ItemProducto>
           ))}
           </tbody>
         </Table>
