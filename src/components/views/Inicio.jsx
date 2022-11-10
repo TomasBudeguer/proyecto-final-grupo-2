@@ -1,5 +1,8 @@
 import { Container, Row } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
+import CardPedido from "./pedido/CardPedido";
+import { Link } from "react-router-dom";
+
 const Inicio = () => {
   return (
     <div className="mainSection">
@@ -12,6 +15,24 @@ const Inicio = () => {
             <CardProducto></CardProducto>
           </Row>
         </div>
+        <hr />
+        <section>
+          <div className="d-flex flex-column align-items-center">
+            <aside>
+              <h2>¿Queres realizar tu pedido?</h2>
+            </aside>
+            <aside>
+              <Link className="btn btn-success" to={`/crear-pedido`}>
+                Realizar pedido
+              </Link>
+            </aside>
+          </div>
+          <h2>Pedidos:</h2>
+          <hr />
+          <Row>
+            <CardPedido></CardPedido>
+          </Row>
+        </section>
       </Container>
     </div>
   );
