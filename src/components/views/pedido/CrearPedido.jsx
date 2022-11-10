@@ -2,7 +2,11 @@ import { Button, Form, Container, Col, Row } from "react-bootstrap";
 
 const CrearPedido = () => {
   return (
-    <Container className="my-5 mainSection">
+    <Container className="my-3 mainSection">
+      <div className="mb-5">
+        <h3>Menu disponible:</h3>
+        <hr />
+      </div>
       <h2 className="display-4">Realizar pedido</h2>
       <hr />
       <Form>
