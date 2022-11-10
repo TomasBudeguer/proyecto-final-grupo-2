@@ -1,4 +1,4 @@
-import { Button, Form, Container, Col, Row } from "react-bootstrap";
+import { Button, Form, Container } from "react-bootstrap";
 
 const EditarPedido = () => {
   return (
