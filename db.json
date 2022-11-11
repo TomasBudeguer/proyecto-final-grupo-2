@@ -21,7 +21,8 @@
     {
       "nombreUsuario": "Rolling User",
       "pedido": "1 pizza especial, 1 pepsi y 1 porcion de papas",
-      "estado": "Pendiente",
+      "estado": "En elaboracion",
+      "categoria": "",
       "id": 1
     },
     {

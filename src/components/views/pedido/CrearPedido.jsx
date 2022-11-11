@@ -21,7 +21,6 @@ const CrearPedido = () => {
   const navegacion = useNavigate();
 
   const onSubmit = (datos) => {
-    console.log(datos);
     crearPedidoAPI(datos).then((respuesta) => {
       if (respuesta.status === 201) {
         Swal.fire(
@@ -30,7 +29,7 @@ const CrearPedido = () => {
           "success"
         );
         reset();
-        navegacion("/administrador");
+        navegacion("/");
       } else {
         Swal.fire("Ocurrio un error", "Vuelva a intentarlo mas tarde", "error");
       }
