@@ -54,7 +54,7 @@ const Inicio = () => {
               <CardPedido
                 key={pedido.id}
                 pedido={pedido}
-                setpedidos={setPedidos}
+                setPedidos={setPedidos}
               ></CardPedido>
             ))}
           </Row>

@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { consultarAPI } from "../helpers/queries";
+import { consultarAPI, consultarPedidosAPI } from "../helpers/queries";
 import ItemPedido from "./pedido/ItemPedido";
 import ItemProducto from "./producto/ItemProducto";
 import ItemUsuario from "./usuario/ItemUsuario";
 
 const Administrador = () => {
   const [productos, setProductos] = useState([]);
+  const [pedidos, setPedidos] = useState([]);
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
     });
+    consultarPedidosAPI().then((respuesta) => {
+      setPedidos(respuesta);
+    });
   }, []);
-  
+
   return (
     <Container className="my-5 mainSection">
       <div>
@@ -42,9 +46,13 @@ const Administrador = () => {
             </tr>
           </thead>
           <tbody>
-          {productos.map((producto) => (
-            <ItemProducto key={producto.id} producto={producto} setProductos={setProductos}></ItemProducto>
-          ))}
+            {productos.map((producto) => (
+              <ItemProducto
+                key={producto.id}
+                producto={producto}
+                setProductos={setProductos}
+              ></ItemProducto>
+            ))}
           </tbody>
         </Table>
       </div>
@@ -63,7 +71,13 @@ const Administrador = () => {
             </tr>
           </thead>
           <tbody>
-            <ItemPedido></ItemPedido>
+            {pedidos.map((pedido) => (
+              <ItemPedido
+                key={pedido.id}
+                pedido={pedido}
+                setPedidos={setPedidos}
+              ></ItemPedido>
+            ))}
           </tbody>
         </Table>
       </div>
