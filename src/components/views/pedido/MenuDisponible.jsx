@@ -20,7 +20,7 @@ const MenuDisponible = ({ producto }) => {
           <Card.Footer className="text-center">
           <Link
             className="btn btn-success"
-            to={`/detalle-producto/${producto.id}`}
+            to={`/detalle-producto/${producto._id}`}
           >
             Ver detalle
           </Link>

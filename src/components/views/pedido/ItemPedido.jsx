@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const ItemPedido = ({ pedido, setPedidos }) => {
   const borrarPedido = () => {
     Swal.fire({
-      title: "¿Esta seguro de eliminar el producto?",
+      title: "¿Esta seguro de eliminar el pedido?",
       text: "No se puede revertir este paso!",
       icon: "warning",
       showCancelButton: true,
@@ -23,8 +23,8 @@ const ItemPedido = ({ pedido, setPedidos }) => {
             });
 
             Swal.fire(
-              "Producto eliminado!",
-              "El producto fue correctamnete eliminado.",
+              "pedido eliminado!",
+              "El pedido fue correctamnete eliminado.",
               "success"
             );
           } else {

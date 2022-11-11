@@ -1,4 +1,5 @@
-const URL = "http://localhost:3004/productos"; //json-server
+// const URL = "http://localhost:3004/productos"; //json-server
+const URL = "http://localhost:4000/apirestaurant/prod/productos" //BD-LOCAL
 const URLpedidos = "http://localhost:3004/pedidos"; //json-server
 
 // PRODUCTOS

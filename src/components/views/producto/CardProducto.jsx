@@ -18,7 +18,7 @@ const CardProducto = ({ producto }) => {
           </div>
           <Card.Text>Descripcion: {producto.descripcion} </Card.Text>
           <hr />
-          <Link className="btn btn-success" to={`/detalle-producto/${producto.id}`}>
+          <Link className="btn btn-success" to={`/detalle-producto/${producto._id}`}>
             Ver detalle
           </Link>
         </Card.Body>

@@ -53,7 +53,7 @@ const CrearPedido = () => {
         <Row>
           {productos.map((producto) => (
             <MenuDisponible
-              key={producto.id}
+              key={producto._id}
               producto={producto}
               setProductos={setProductos}
             ></MenuDisponible>
