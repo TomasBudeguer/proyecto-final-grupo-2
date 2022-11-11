@@ -21,8 +21,14 @@
     {
       "nombreUsuario": "Rolling User",
       "pedido": "1 pizza especial, 1 pepsi y 1 porcion de papas",
-      "estado": "pendiente",
+      "estado": "Pendiente",
       "id": 1
+    },
+    {
+      "nombreUsuario": "Tomi1234",
+      "pedido": "dasdsadsadsadsddsd",
+      "estado": "Pendiente",
+      "id": 2
     }
   ]
 }

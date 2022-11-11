@@ -12,7 +12,8 @@ const EditarPedido = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPedido">
           <Form.Label>Pedido*</Form.Label>
-          <Form.Control type="text" placeholder="Ej: 1 Pizza especial" />
+          <Form.Control type="text" placeholder="Ej: 1 Pizza especial" as="textarea"
+            style={{ height: "100px" }}/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formEstado">
           <Form.Label>Estado</Form.Label>
