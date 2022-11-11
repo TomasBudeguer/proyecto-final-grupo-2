@@ -16,7 +16,7 @@ const ItemPedido = ({ pedido, setPedidos }) => {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        borrarPedidoAPI(pedido.id).then((respuesta) => {
+        borrarPedidoAPI(pedido._id).then((respuesta) => {
           if (respuesta.status === 200) {
             consultarPedidosAPI().then((respuesta) => {
               setPedidos(respuesta);
@@ -41,14 +41,14 @@ const ItemPedido = ({ pedido, setPedidos }) => {
 
   return (
     <tr>
-      <td>{pedido.id}</td>
+      <td>{pedido._id}</td>
       <td>{pedido.nombreUsuario}</td>
       <td>
         <p className="cortarText">{pedido.pedido}</p>
       </td>
       <td>{pedido.estado}</td>
       <td>
-        <Link className="btn btn-success me-2 mb-1" to={`/administrar/editar-pedido/${pedido.id}`}>
+        <Link className="btn btn-success me-2 mb-1" to={`/administrar/editar-pedido/${pedido._id}`}>
           Editar
         </Link>
         <Button variant="danger" className="mb-1" onClick={borrarPedido}>

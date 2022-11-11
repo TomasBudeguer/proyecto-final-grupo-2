@@ -52,7 +52,7 @@ const Inicio = () => {
           <Row>
             {pedidos.map((pedido) => (
               <CardPedido
-                key={pedido.id}
+                key={pedido._id}
                 pedido={pedido}
                 setPedidos={setPedidos}
               ></CardPedido>

@@ -17,7 +17,7 @@ const CardPedido = ({pedido, setPedido}) => {
           </Card.Subtitle>
         </Card.Body>
         <Card.Footer>
-          <Link className="btn btn-success" to={`/detalle-pedido/${pedido.id}`}>
+          <Link className="btn btn-success" to={`/detalle-pedido/${pedido._id}`}>
             Ver detalle del pedido
           </Link>
         </Card.Footer>
