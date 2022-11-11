@@ -1,18 +1,18 @@
 import { Col, Card, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const CardPedido = () => {
+const CardPedido = ({pedido, setPedido}) => {
   return (
     <Col sm={12} md={4} lg={3}>
       <Card className="mb-4">
         <Card.Header>
-          <Card.Title>Pedido de: </Card.Title>
+          <Card.Title>Pedido de: {pedido.nombreUsuario}</Card.Title>
         </Card.Header>
         <Card.Body>
           <Card.Subtitle className="fs-5">
             Estado:
             <Badge bg="success" className="ms-4">
-              Listo para retirar
+            {pedido.estado}
             </Badge>
           </Card.Subtitle>
         </Card.Body>

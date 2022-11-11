@@ -3,14 +3,18 @@ import CardProducto from "./producto/CardProducto";
 import CardPedido from "./pedido/CardPedido";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { consultarAPI } from "../helpers/queries";
+import { consultarAPI, consultarPedidosAPI } from "../helpers/queries";
 
 const Inicio = () => {
   const [productos, setProductos] = useState([]);
+  const [pedidos, setPedidos] = useState([]);
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
+    });
+    consultarPedidosAPI().then((respuesta) => {
+      setPedidos(respuesta);
     });
   }, []);
 
@@ -46,7 +50,13 @@ const Inicio = () => {
           <h2>Pedidos:</h2>
           <hr />
           <Row>
-            <CardPedido></CardPedido>
+            {pedidos.map((pedido) => (
+              <CardPedido
+                key={pedido.id}
+                pedido={pedido}
+                setpedidos={setPedidos}
+              ></CardPedido>
+            ))}
           </Row>
         </section>
       </Container>
