@@ -95,6 +95,15 @@ const CrearPedido = () => {
               </Card>
             </Col>
           ))}
+          {/* <Row>
+          {productos.map((producto) => (
+            <MenuDisponible
+              key={producto._id}
+              producto={producto}
+              setProductos={setProductos}
+            ></MenuDisponible>
+          ))}
+        </Row> */}
         </Row>
         <hr />
       </div>
