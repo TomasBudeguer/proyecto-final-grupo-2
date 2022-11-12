@@ -145,3 +145,14 @@ export const listaPedidosPendientesAPI = async () => {
     console.log(error);
   }
 };
+
+// pedidos en elaboracion
+export const listaPedidosElaboracionAPI = async () => {
+  try {
+    const respuesta = await fetch(URLpedidos + "-elaboracion");
+    const pedidosElaboracion = await respuesta.json();
+    return pedidosElaboracion;
+  } catch (error) {
+    console.log(error);
+  }
+};

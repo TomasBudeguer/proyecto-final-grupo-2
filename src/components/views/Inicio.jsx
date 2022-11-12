@@ -3,18 +3,23 @@ import CardProducto from "./producto/CardProducto";
 import CardPedidoPendientes from "./pedido/CardPedidoPendientes";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { consultarAPI, listaPedidosPendientesAPI } from "../helpers/queries";
+import { consultarAPI, listaPedidosPendientesAPI,listaPedidosElaboracionAPI } from "../helpers/queries";
+import CardPedidoElaboracion from "./pedido/CardPedidoElaboracion";
 
 const Inicio = () => {
   const [productos, setProductos] = useState([]);
-  const [pedidos, setPedidos] = useState([]);
+  const [pedidosPendientes, setPedidosPendientes] = useState([]);
+  const [pedidosElaboracion, setPedidosElaboracion] = useState([]);
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
     });
     listaPedidosPendientesAPI().then((respuesta) => {
-      setPedidos(respuesta);
+      setPedidosPendientes(respuesta);
+    });
+    listaPedidosElaboracionAPI().then((respuesta) => {
+      setPedidosElaboracion(respuesta);
     });
   }, []);
 
@@ -50,12 +55,23 @@ const Inicio = () => {
           <h2>Pedidos Pendientes</h2>
           <hr />
           <Row>
-            {pedidos.map((pedido) => (
+            {pedidosPendientes.map((pedido) => (
               <CardPedidoPendientes
                 key={pedido._id}
                 pedido={pedido}
-                setPedidos={setPedidos}
+                setPedidos={setPedidosPendientes}
               ></CardPedidoPendientes>
+            ))}
+          </Row>
+          <h2>Pedidos en elaboracion</h2>
+          <hr />
+          <Row>
+            {pedidosElaboracion.map((pedido) => (
+              <CardPedidoElaboracion
+                key={pedido._id}
+                pedido={pedido}
+                setPedidos={setPedidosElaboracion}
+              ></CardPedidoElaboracion>
             ))}
           </Row>
         </section>
