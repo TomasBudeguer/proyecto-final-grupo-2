@@ -156,3 +156,14 @@ export const listaPedidosElaboracionAPI = async () => {
     console.log(error);
   }
 };
+
+// pedidos listos
+export const listaPedidosListosAPI = async () => {
+  try {
+    const respuesta = await fetch(URLpedidos + "-listos");
+    const pedidosListos = await respuesta.json();
+    return pedidosListos;
+  } catch (error) {
+    console.log(error);
+  }
+};
