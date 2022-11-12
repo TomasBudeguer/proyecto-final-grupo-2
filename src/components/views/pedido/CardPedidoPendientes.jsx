@@ -1,7 +1,7 @@
 import { Col, Card, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const CardPedido = ({pedido, setPedido}) => {
+const CardPedidoPendientes = ({pedido, setPedido}) => {
   return (
     <Col sm={12} md={4} lg={3}>
       <Card className="mb-4">
@@ -26,4 +26,4 @@ const CardPedido = ({pedido, setPedido}) => {
   );
 };
 
-export default CardPedido;
+export default CardPedidoPendientes;

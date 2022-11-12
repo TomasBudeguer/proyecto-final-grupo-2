@@ -1,9 +1,9 @@
 import { Container, Row } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
-import CardPedido from "./pedido/CardPedido";
+import CardPedidoPendientes from "./pedido/CardPedidoPendientes";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { consultarAPI, consultarPedidosAPI } from "../helpers/queries";
+import { consultarAPI, listaPedidosPendientesAPI } from "../helpers/queries";
 
 const Inicio = () => {
   const [productos, setProductos] = useState([]);
@@ -13,7 +13,7 @@ const Inicio = () => {
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
     });
-    consultarPedidosAPI().then((respuesta) => {
+    listaPedidosPendientesAPI().then((respuesta) => {
       setPedidos(respuesta);
     });
   }, []);
@@ -47,15 +47,15 @@ const Inicio = () => {
               </Link>
             </aside>
           </div>
-          <h2>Pedidos:</h2>
+          <h2>Pedidos Pendientes</h2>
           <hr />
           <Row>
             {pedidos.map((pedido) => (
-              <CardPedido
+              <CardPedidoPendientes
                 key={pedido._id}
                 pedido={pedido}
                 setPedidos={setPedidos}
-              ></CardPedido>
+              ></CardPedidoPendientes>
             ))}
           </Row>
         </section>

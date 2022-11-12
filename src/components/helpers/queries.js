@@ -134,3 +134,14 @@ export const editarPedidoAPI = async (id, datosActualizados) => {
     console.log(error);
   }
 };
+
+// pedidos pendiente
+export const listaPedidosPendientesAPI = async () => {
+  try {
+    const respuesta = await fetch(URLpedidos + "-pendientes");
+    const pedidosPendientes = await respuesta.json();
+    return pedidosPendientes;
+  } catch (error) {
+    console.log(error);
+  }
+};
