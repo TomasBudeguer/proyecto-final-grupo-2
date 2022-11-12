@@ -113,13 +113,14 @@ const EditarPedido = () => {
             <option value="Pendiente">Pendiente</option>
             <option value="En elaboracion">En elaboracion</option>
             <option value="Listo para retirar">Listo para retirar</option>
+            <option value="Cancelado">Cancelado</option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.estado?.message}
           </Form.Text>
         </Form.Group>
         <Button variant="primary" type="submit">
-          Realizar pedido
+          Modificar pedido
         </Button>
       </Form>
     </Container>

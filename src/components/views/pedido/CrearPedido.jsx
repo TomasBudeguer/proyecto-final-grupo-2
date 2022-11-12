@@ -1,25 +1,42 @@
-import { Button, Form, Container, Row, Card } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  Container,
+  Row,
+  Card,
+  Col,
+  Badge,
+} from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { consultarAPI, crearPedidoAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
-import MenuDisponible from "./MenuDisponible";
+// import MenuDisponible from "./MenuDisponible";
 
 const CrearPedido = () => {
   const [productos, setProductos] = useState([]);
+
+  const [menuPedido, setMenuPedido] = useState([]);
+
+  const agregarMenu = (producto) => {
+    setMenuPedido([...menuPedido, " " + producto.nombreProducto]);
+    console.log(menuPedido);
+  };
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
     });
-  }, []);
+    setValue("pedido", menuPedido);
+  }, [menuPedido]);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm({
     defaultValues: {
       nombreUsuario: "",
@@ -52,11 +69,31 @@ const CrearPedido = () => {
         <h3>Menu disponible:</h3>
         <Row>
           {productos.map((producto) => (
-            <MenuDisponible
-              key={producto._id}
-              producto={producto}
-              setProductos={setProductos}
-            ></MenuDisponible>
+            <Col sm={12} md={3} lg={2} key={producto._id}>
+              <Card className="mb-4">
+                <Card.Img variant="top" src={producto.imagen} />
+                <Card.Body>
+                  <Card.Title className="text-center">
+                    "{producto.nombreProducto}"
+                  </Card.Title>
+                  <Card.Subtitle className="text-center">
+                    Precio: ${producto.precio}
+                  </Card.Subtitle>
+                  <aside className="text-center">
+                    <Badge bg="success"> {producto.categoria}</Badge>
+                  </aside>
+                </Card.Body>
+                <Card.Footer className="text-center">
+                  <Button
+                    onClick={() => {
+                      agregarMenu(producto);
+                    }}
+                  >
+                    Agregar al pedido
+                  </Button>
+                </Card.Footer>
+              </Card>
+            </Col>
           ))}
         </Row>
         <hr />
@@ -66,74 +103,75 @@ const CrearPedido = () => {
           <h2 className="display-4">Realizar pedido</h2>
         </Card.Header>
         <Card.Body>
-
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <Form.Group className="mb-3" controlId="formNombreUsuario">
-            <Form.Label>Nombre de usuario</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Ej: RollingUser"
-              {...register("nombreUsuario", {
-                required: "Este dato es obligatorio",
-                minLength: {
-                  value: 6,
-                  message: "Debe ingresar como minimo 6 caracteres",
-                },
-                maxLength: {
-                  value: 20,
-                  message: "Debe ingresar como maximo 20 caracteres",
-                },
-              })}
-            />
-            <Form.Text className="text-danger">
-              {errors.nombreUsuario?.message}
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formPedido">
-            <Form.Label>Pedido*</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Ej: 1 Pizza especial"
-              as="textarea"
-              style={{ height: "100px" }}
-              {...register("pedido", {
-                required: "Este dato es obligatorio",
-                minLength: {
-                  value: 3,
-                  message: "Debe ingresar como minimo 3 caracteres",
-                },
-              })}
-            />
-            <Form.Text className="text-danger">
-              {errors.pedido?.message}
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formEstado">
-            <Form.Label>Estado</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Estado del pedido"
-              disabled
-              {...register("estado", {
-                required: "Este dato es obligatorio",
-                minLength: {
-                  value: 8,
-                  message: "Debe ingresar como minimo 8 caracteres",
-                },
-                maxLength: {
-                  value: 20,
-                  message: "Debe ingresar como maximo 20 caracteres",
-                },
-              })}
-            />
-            <Form.Text className="text-danger">
-              {errors.estado?.message}
-            </Form.Text>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Realizar pedido
-          </Button>
-        </Form>
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form.Group className="mb-3" controlId="formNombreUsuario">
+              <Form.Label>Nombre de usuario</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ej: RollingUser"
+                {...register("nombreUsuario", {
+                  required: "Este dato es obligatorio",
+                  minLength: {
+                    value: 6,
+                    message: "Debe ingresar como minimo 6 caracteres",
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: "Debe ingresar como maximo 20 caracteres",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger">
+                {errors.nombreUsuario?.message}
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formPedido">
+              <Form.Label>
+                Pedido* (Agregue la cantidad de productos de forma manual)
+              </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ej: 1 Pizza especial"
+                as="textarea"
+                style={{ height: "100px" }}
+                {...register("pedido", {
+                  required: "Este dato es obligatorio",
+                  minLength: {
+                    value: 3,
+                    message: "Debe ingresar como minimo 3 caracteres",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger">
+                {errors.pedido?.message}
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formEstado">
+              <Form.Label>Estado</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Estado del pedido"
+                disabled
+                {...register("estado", {
+                  required: "Este dato es obligatorio",
+                  minLength: {
+                    value: 8,
+                    message: "Debe ingresar como minimo 8 caracteres",
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: "Debe ingresar como maximo 20 caracteres",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger">
+                {errors.estado?.message}
+              </Form.Text>
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Realizar pedido
+            </Button>
+          </Form>
         </Card.Body>
       </Card>
     </Container>
