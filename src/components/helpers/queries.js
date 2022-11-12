@@ -167,3 +167,14 @@ export const listaPedidosListosAPI = async () => {
     console.log(error);
   }
 };
+
+// pedidos cancelados
+export const listaPedidosCanceladosAPI = async () => {
+  try {
+    const respuesta = await fetch(URLpedidos + "-cancelados");
+    const pedidosCancelados = await respuesta.json();
+    return pedidosCancelados;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -3,7 +3,13 @@ import CardProducto from "./producto/CardProducto";
 import CardPedidoPendientes from "./pedido/CardPedidoPendientes";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { consultarAPI, listaPedidosPendientesAPI,listaPedidosElaboracionAPI, listaPedidosListosAPI } from "../helpers/queries";
+import {
+  consultarAPI,
+  listaPedidosPendientesAPI,
+  listaPedidosElaboracionAPI,
+  listaPedidosListosAPI,
+  listaPedidosCanceladosAPI,
+} from "../helpers/queries";
 import CardPedidoElaboracion from "./pedido/CardPedidoElaboracion";
 import CardPedidoListo from "./pedido/CardPedidoListo";
 
@@ -12,6 +18,7 @@ const Inicio = () => {
   const [pedidosPendientes, setPedidosPendientes] = useState([]);
   const [pedidosElaboracion, setPedidosElaboracion] = useState([]);
   const [pedidosListos, setPedidosListos] = useState([]);
+  const [pedidosCancelados, setPedidosCancelados] = useState([]);
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
@@ -25,6 +32,9 @@ const Inicio = () => {
     });
     listaPedidosListosAPI().then((respuesta) => {
       setPedidosListos(respuesta);
+    });
+    listaPedidosCanceladosAPI().then((respuesta) => {
+      setPedidosCancelados(respuesta);
     });
   }, []);
 
@@ -87,6 +97,17 @@ const Inicio = () => {
                 key={pedido._id}
                 pedido={pedido}
                 setPedidos={setPedidosListos}
+              ></CardPedidoListo>
+            ))}
+          </Row>
+          <h2>Pedidos cancelados</h2>
+          <hr />
+          <Row>
+            {pedidosCancelados.map((pedido) => (
+              <CardPedidoListo
+                key={pedido._id}
+                pedido={pedido}
+                setPedidos={setPedidosCancelados}
               ></CardPedidoListo>
             ))}
           </Row>
