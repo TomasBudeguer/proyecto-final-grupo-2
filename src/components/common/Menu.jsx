@@ -16,7 +16,7 @@ const Menu = () => {
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to='/productos-salados'>Salados</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2">Bebida Caliente</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-bebidas-calientes'>Bebida Caliente</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.3">Bebida Fria</NavDropdown.Item>
               <NavDropdown.Divider />

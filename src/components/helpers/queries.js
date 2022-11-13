@@ -206,3 +206,14 @@ export const listarProductosSaladosAPI = async () => {
     console.log(error);
   }
 };
+
+//bebidas calientes
+export const listarProductosBebidasCalientesAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-bebida-caliente");
+    const ProductosBebidasCalientes = await respuesta.json();
+    return ProductosBebidasCalientes;
+  } catch (error) {
+    console.log(error);
+  }
+};
