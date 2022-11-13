@@ -28,6 +28,14 @@ function App() {
       <Route exact path='/detalle-pedido/:id' element={<DetallePedido></DetallePedido>}></Route>
       <Route exact path='/crear-pedido' element={<CrearPedido></CrearPedido>}></Route>
       <Route exact path='/administrar/editar-pedido/:id' element={<EditarPedido></EditarPedido>}></Route>
+      <Route exact path='/productos-salados' element={} ></Route>
+      <Route exact path='/productos-bebida-caliente' element={} ></Route>
+      <Route exact path='/productos-bebida-fria' element={} ></Route>
+      <Route exact path='/productos-dulce' element={} ></Route>
+      <Route exact path='/productos-ensaladas' element={} ></Route>
+      <Route exact path='/productos-postres' element={} ></Route>
+      <Route exact path='/productos-tortas' element={} ></Route>
+      <Route exact path='/productos-tartas' element={} ></Route>
       <Route exact path='/login' element={<Login></Login>}></Route>
       <Route exact path='/registro' element={<Registro></Registro>}></Route>
       <Route exact path='/menu' element={<Menu></Menu>}></Route>

@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css"
 const Menu = () => {
@@ -13,6 +13,23 @@ const Menu = () => {
             <Nav.Link as={Link} to='/administrador'>Administrador</Nav.Link>
             <Nav.Link as={Link} to='/login'>Login</Nav.Link>
             <Nav.Link as={Link} to='/registro'>Registro</Nav.Link>
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Salados</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.2">Bebida Caliente</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.3">Bebida Fria</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.1">Dulce</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.1">Ensaladas</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.1">Postres</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.1">Tortas</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.1">Tartas</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
