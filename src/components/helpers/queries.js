@@ -196,6 +196,13 @@ export const filtroBusqueda = async (producto) => {
   }
 };
 
-// const respuesta = await fetch(URL);
-//     const listaProductos = await respuesta.json();
-//     return listaProductos;
+//producto salados
+export const listarProductosSaladosAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-salados");
+    const ProductosSalados = await respuesta.json();
+    return ProductosSalados;
+  } catch (error) {
+    console.log(error);
+  }
+};

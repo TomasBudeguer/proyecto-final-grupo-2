@@ -14,7 +14,7 @@ const Menu = () => {
             <Nav.Link as={Link} to='/login'>Login</Nav.Link>
             <Nav.Link as={Link} to='/registro'>Registro</Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Salados</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-salados'>Salados</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.2">Bebida Caliente</NavDropdown.Item>
               <NavDropdown.Divider />
