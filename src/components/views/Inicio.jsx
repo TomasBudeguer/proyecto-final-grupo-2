@@ -1,6 +1,5 @@
 import { Container, Row } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
-import CardPedidoPendientes from "./pedido/CardPedidoPendientes";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
@@ -10,8 +9,7 @@ import {
   listaPedidosListosAPI,
   listaPedidosCanceladosAPI,
 } from "../helpers/queries";
-import CardPedidoElaboracion from "./pedido/CardPedidoElaboracion";
-import CardPedidoListo from "./pedido/CardPedidoListo";
+import CardPedido from "./pedido/CardPedido";
 
 const Inicio = () => {
   const [productos, setProductos] = useState([]);
@@ -67,48 +65,48 @@ const Inicio = () => {
               </Link>
             </aside>
           </div>
-          <h2>Pedidos Pendientes</h2>
+          <h2>Pedidos pendientes</h2>
           <hr />
           <Row>
             {pedidosPendientes.map((pedido) => (
-              <CardPedidoPendientes
+              <CardPedido
                 key={pedido._id}
                 pedido={pedido}
                 setPedidos={setPedidosPendientes}
-              ></CardPedidoPendientes>
+              ></CardPedido>
             ))}
           </Row>
           <h2>Pedidos en elaboracion</h2>
           <hr />
           <Row>
             {pedidosElaboracion.map((pedido) => (
-              <CardPedidoElaboracion
+              <CardPedido
                 key={pedido._id}
                 pedido={pedido}
                 setPedidos={setPedidosElaboracion}
-              ></CardPedidoElaboracion>
+              ></CardPedido>
             ))}
           </Row>
           <h2>Pedidos listos para retirar</h2>
           <hr />
           <Row>
             {pedidosListos.map((pedido) => (
-              <CardPedidoListo
+              <CardPedido
                 key={pedido._id}
                 pedido={pedido}
                 setPedidos={setPedidosListos}
-              ></CardPedidoListo>
+              ></CardPedido>
             ))}
           </Row>
           <h2>Pedidos cancelados</h2>
           <hr />
           <Row>
             {pedidosCancelados.map((pedido) => (
-              <CardPedidoListo
+              <CardPedido
                 key={pedido._id}
                 pedido={pedido}
                 setPedidos={setPedidosCancelados}
-              ></CardPedidoListo>
+              ></CardPedido>
             ))}
           </Row>
         </section>
