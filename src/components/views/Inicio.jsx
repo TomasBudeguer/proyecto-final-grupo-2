@@ -1,4 +1,12 @@
-import { Container, Row } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Form,
+  Button,
+  Col,
+  Card,
+  Badge,
+} from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -8,8 +16,12 @@ import {
   listaPedidosElaboracionAPI,
   listaPedidosListosAPI,
   listaPedidosCanceladosAPI,
+  filtroBusqueda,
 } from "../helpers/queries";
 import CardPedido from "./pedido/CardPedido";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { useForm } from "react-hook-form";
+import CardFiltro from "./producto/CardFiltro";
 
 const Inicio = () => {
   const [productos, setProductos] = useState([]);
@@ -17,6 +29,7 @@ const Inicio = () => {
   const [pedidosElaboracion, setPedidosElaboracion] = useState([]);
   const [pedidosListos, setPedidosListos] = useState([]);
   const [pedidosCancelados, setPedidosCancelados] = useState([]);
+  const [filtrado, setFiltrado] = useState([]);
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
@@ -36,13 +49,91 @@ const Inicio = () => {
     });
   }, []);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues: {
+      nombreProducto: "",
+    },
+  });
+
+  const onSubmit = (datos) => {
+    console.log(datos);
+    filtroBusqueda(datos).then((respuesta) => {
+      setFiltrado(respuesta);
+    });
+    reset();
+  };
+
   return (
     <div className="mainSection">
       <Container>
         <h1 className="display-4 text-center">Bienvenidos!</h1>
         <hr />
         <div>
-          <h2 className="text-center">Nuestros productos disponibles</h2>
+          <Row>
+            <Col sm={12} md={12} lg={7}>
+              <h2 className="text-center">Nuestros productos disponibles</h2>
+            </Col>
+            <Col sm={12} md={12} lg={5} className="mb-3">
+              <Card>
+                <Card.Header>
+                  <Form onSubmit={handleSubmit(onSubmit)}>
+                    <Row>
+                      <Col sm={10} md={8} lg={8}>
+                        <Form.Group controlId="formBasicNombreProducto">
+                          <Form.Control
+                            type="text"
+                            placeholder="Nombre del producto"
+                            {...register("nombreProducto", {
+                              required: "Este dato es obligatorio",
+                              minLength: {
+                                value: 2,
+                                message:
+                                  "Debe ingresar como minimo 2 caracteres",
+                              },
+                              maxLength: {
+                                value: 50,
+                                message:
+                                  "Debe ingresar como maximo 50 caracteres",
+                              },
+                            })}
+                          />
+                          <Form.Text className="text-danger">
+                            {errors.nombreProducto?.message}
+                          </Form.Text>
+                        </Form.Group>
+                      </Col>
+                      <Col sm={2} md={4} lg={4}>
+                        <div className="text-center">
+                          <Button
+                            variant="primary"
+                            type="submit"
+                            className="me-2"
+                          >
+                            Buscar
+                          </Button>
+                          <Button variant="danger" type="submit">
+                            <i className="bi bi-x-circle-fill"></i>
+                          </Button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Form>
+                </Card.Header>
+                    {filtrado.map((producto) => (
+                      <CardFiltro
+                      key={producto._id}
+                      producto={producto}
+                      setProductos={setProductos}
+                    ></CardFiltro>
+                    ))}
+              </Card>
+            </Col>
+          </Row>
           <Row>
             {productos.map((producto) => (
               <CardProducto

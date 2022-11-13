@@ -178,3 +178,24 @@ export const listaPedidosCanceladosAPI = async () => {
     console.log(error);
   }
 };
+
+// filtro de busqueda
+export const filtroBusqueda = async (producto) => {
+  try {
+    const respuesta = await fetch(URL + "/filtro", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(producto),
+    });
+    const productoFiltrado =await respuesta.json()
+    return productoFiltrado;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// const respuesta = await fetch(URL);
+//     const listaProductos = await respuesta.json();
+//     return listaProductos;
