@@ -37,5 +37,12 @@
       "usuario": "joseluis@gmail.com",
       "password": "123456"
     }
+  ],
+  "invitado":[
+    {
+      "nombre": "Pedro Gonzalez",
+      "email": "pedro.gonzalez@gmail.com",
+      "password": "123456"
+    }
   ]
 }
