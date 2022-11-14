@@ -261,3 +261,14 @@ export const listarProductosPostresAPI = async () => {
     console.log(error);
   }
 };
+
+//tortas
+export const listarProductosTortasAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-tortas");
+    const ProdTortas = await respuesta.json();
+    return ProdTortas;
+  } catch (error) {
+    console.log(error);
+  }
+};

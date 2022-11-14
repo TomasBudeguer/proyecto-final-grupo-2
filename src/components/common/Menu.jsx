@@ -26,7 +26,7 @@ const Menu = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to='/productos-postres'>Postres</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.1">Tortas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-tortas'>Tortas</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.1">Tartas</NavDropdown.Item>
             </NavDropdown>
