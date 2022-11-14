@@ -20,7 +20,7 @@ const Menu = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to='/productos-bebida-fria'>Bebida Fria</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.1">Dulce</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-dulce'>Dulce</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.1">Ensaladas</NavDropdown.Item>
               <NavDropdown.Divider />

@@ -218,12 +218,23 @@ export const listarProductosBebidasCalientesAPI = async () => {
   }
 };
 
-//bebidas calientes
+//bebidas frias
 export const listarProductosBebidasFriasAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-bebida-fria");
     const ProductosBebidasFrias = await respuesta.json();
     return ProductosBebidasFrias;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//dulces
+export const listarProductosDulcesAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-dulce");
+    const ProductosDulces = await respuesta.json();
+    return ProductosDulces;
   } catch (error) {
     console.log(error);
   }
