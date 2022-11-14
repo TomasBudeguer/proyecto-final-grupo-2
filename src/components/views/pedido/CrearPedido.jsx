@@ -121,12 +121,12 @@ const CrearPedido = () => {
                 {...register("nombreUsuario", {
                   required: "Este dato es obligatorio",
                   minLength: {
-                    value: 6,
-                    message: "Debe ingresar como minimo 6 caracteres",
+                    value: 8,
+                    message: "Debe ingresar como minimo 8 caracteres",
                   },
                   maxLength: {
-                    value: 20,
-                    message: "Debe ingresar como maximo 20 caracteres",
+                    value: 50,
+                    message: "Debe ingresar como maximo 50 caracteres",
                   },
                 })}
               />
