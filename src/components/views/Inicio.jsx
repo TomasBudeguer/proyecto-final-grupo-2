@@ -78,8 +78,8 @@ const Inicio = () => {
         <h1 className="display-4 text-center">Bienvenidos!</h1>
         <hr />
         <div>
-          <Row>
-            <Col sm={12} md={12} lg={7}>
+          <Row className="justify-content-center">
+            <Col sm={12} md={12} lg={12}>
               <h2 className="text-center">Nuestros productos disponibles</h2>
             </Col>
             <Col sm={12} md={12} lg={5} className="mb-3">
@@ -128,6 +128,7 @@ const Inicio = () => {
                     </Row>
                   </Form>
                 </Card.Header>
+                <Row className="justify-content-center">
                     {filtrado.map((producto) => (
                       <CardFiltro
                       key={producto._id}
@@ -135,9 +136,11 @@ const Inicio = () => {
                       setProductos={setProductos}
                     ></CardFiltro>
                     ))}
+                </Row>
               </Card>
             </Col>
           </Row>
+          <hr />
           <Row>
             {productos.map((producto) => (
               <CardProducto

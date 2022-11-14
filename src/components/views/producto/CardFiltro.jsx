@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CardFiltro = ({ producto }) => {
   return (
-    <Col sm={12} md={4} lg={3} className="m-2">
+    <Col sm={12} md={4} lg={6} className="m-2">
       <Card>
         <Card.Img variant="top" src={producto.imagen} />
         <Card.Body>
