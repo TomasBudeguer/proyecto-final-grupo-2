@@ -272,3 +272,14 @@ export const listarProductosTortasAPI = async () => {
     console.log(error);
   }
 };
+
+//tartas
+export const listarProductosTartasAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-tartas");
+    const ProdTartas = await respuesta.json();
+    return ProdTartas;
+  } catch (error) {
+    console.log(error);
+  }
+};
