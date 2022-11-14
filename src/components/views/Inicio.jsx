@@ -68,6 +68,10 @@ const Inicio = () => {
     reset();
   };
 
+  const borrarFiltrado = ()=>{
+    setFiltrado([])
+  }
+
   return (
     <div className="mainSection">
       <Container>
@@ -116,7 +120,7 @@ const Inicio = () => {
                           >
                             Buscar
                           </Button>
-                          <Button variant="danger" type="submit">
+                          <Button variant="danger" onClick={borrarFiltrado}>
                             <i className="bi bi-x-circle-fill"></i>
                           </Button>
                         </div>
