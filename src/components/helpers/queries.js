@@ -217,3 +217,14 @@ export const listarProductosBebidasCalientesAPI = async () => {
     console.log(error);
   }
 };
+
+//bebidas calientes
+export const listarProductosBebidasFriasAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-bebida-fria");
+    const ProductosBebidasFrias = await respuesta.json();
+    return ProductosBebidasFrias;
+  } catch (error) {
+    console.log(error);
+  }
+};

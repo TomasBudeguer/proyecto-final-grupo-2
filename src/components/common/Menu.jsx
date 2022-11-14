@@ -18,7 +18,7 @@ const Menu = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to='/productos-bebidas-calientes'>Bebida Caliente</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Bebida Fria</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-bebida-fria'>Bebida Fria</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.1">Dulce</NavDropdown.Item>
               <NavDropdown.Divider />
