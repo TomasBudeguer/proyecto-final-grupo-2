@@ -50,6 +50,14 @@ const Login = () => {
                   placeholder="Password"
                   {...register("password", {
                     required: "El password es obligatorio",
+                    minLength: {
+                        value: 8,
+                        message: "Debe ingresar un mínimo de 8 caracteres"
+                    },
+                    maxLength: {
+                        value: 16,
+                        message: "Debe ingresar un máximo de 16 caracteres"
+                    }
                   })}
                 />
                 <Form.Text className="text-danger">
