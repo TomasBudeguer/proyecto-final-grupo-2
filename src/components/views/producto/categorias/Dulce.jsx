@@ -11,7 +11,7 @@ const Dulce = () => {
         })
     },[])
   return (
-    <Container>
+    <Container className="mainSection">
       <h2>Productos Dulces</h2>
       <hr />
       <Row>

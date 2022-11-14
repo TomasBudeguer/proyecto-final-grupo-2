@@ -11,7 +11,7 @@ const Tartas = () => {
         })
     },[])
   return (
-    <Container>
+    <Container className="mainSection">
       <h2>Productos Tartas</h2>
       <hr />
       <Row>

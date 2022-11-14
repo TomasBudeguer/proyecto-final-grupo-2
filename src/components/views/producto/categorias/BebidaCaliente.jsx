@@ -12,7 +12,7 @@ const BebidaCaliente = () => {
         })
     },[])
   return (
-    <Container>
+    <Container className="mainSection">
       <h2>Bebidas Calientes</h2>
       <hr />
       <Row>
