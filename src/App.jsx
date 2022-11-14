@@ -18,6 +18,7 @@ import Salados from './components/views/producto/Salados';
 import BebidaCaliente from './components/views/producto/BebidaCaliente';
 import BebidaFria from './components/views/producto/BebidaFria';
 import Dulce from './components/views/producto/Dulce';
+import Ensaladas from './components/views/producto/Ensaladas';
 
 function App() {
   return (
@@ -36,8 +37,8 @@ function App() {
       <Route exact path='/productos-bebidas-calientes' element={<BebidaCaliente></BebidaCaliente>} ></Route>
       <Route exact path='/productos-bebida-fria' element={<BebidaFria></BebidaFria>} ></Route>
       <Route exact path='/productos-dulce' element={<Dulce></Dulce>} ></Route>
-      {/* <Route exact path='/productos-ensaladas' element={} ></Route>
-      <Route exact path='/productos-postres' element={} ></Route>
+      <Route exact path='/productos-ensaladas' element={<Ensaladas></Ensaladas>} ></Route>
+      {/* <Route exact path='/productos-postres' element={} ></Route>
       <Route exact path='/productos-tortas' element={} ></Route>
       <Route exact path='/productos-tartas' element={} ></Route> */}
       <Route exact path='/login' element={<Login></Login>}></Route>

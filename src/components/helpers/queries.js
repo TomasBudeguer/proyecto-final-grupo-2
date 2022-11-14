@@ -239,3 +239,25 @@ export const listarProductosDulcesAPI = async () => {
     console.log(error);
   }
 };
+
+//ensaladas
+export const listarProductosEnsaladasAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-ensaladas");
+    const ProdEnsaladas = await respuesta.json();
+    return ProdEnsaladas;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//postres
+export const listarProductosPostresAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-postres");
+    const ProdPostres = await respuesta.json();
+    return ProdPostres;
+  } catch (error) {
+    console.log(error);
+  }
+};
