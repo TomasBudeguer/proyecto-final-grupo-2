@@ -51,7 +51,7 @@ const Registro = () => {
                     message: "Debe ingresar un mínimo de 8 caracteres"
                   },
                   maxLength: {
-                    value: 50,
+                    value: 200,
                     message: "Debe ingresar un máximo de 50 caracteres"
                   },
                   pattern: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ 
