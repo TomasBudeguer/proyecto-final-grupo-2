@@ -25,6 +25,14 @@ const Registro = () => {
                 placeholder="Ej: Pedro Gonzalez"
                 {...register("nombre", {
                   required: "El nombre de password es obligatorio",
+                  minLength: {
+                    value: 8,
+                    message: "Debe ingresar un mínimo de 8 caracteres"
+                  },
+                  maxLength: {
+                    value: 50,
+                    message: "Debe ingresar un máximo de 50 caracteres"
+                  }
                 })}
               />
               <Form.Text className="text-danger">
@@ -38,6 +46,15 @@ const Registro = () => {
                 placeholder="juanperez@gmail.com"
                 {...register("email", {
                   required: "El nombre de password es obligatorio",
+                  minLength: {
+                    value: 8,
+                    message: "Debe ingresar un mínimo de 8 caracteres"
+                  },
+                  maxLength: {
+                    value: 50,
+                    message: "Debe ingresar un máximo de 50 caracteres"
+                  },
+                  pattern: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ 
                 })}
               />
               <Form.Text className="text-danger">
@@ -52,6 +69,14 @@ const Registro = () => {
                 placeholder="Password"
                 {...register("password", {
                   required: "El nombre de password es obligatorio",
+                  minLength: {
+                    value: 8,
+                    message: "Debe ingresar un mínimo de 8 caracteres"
+                  },
+                  maxLength: {
+                    value: 16,
+                    message: "Debe ingresar un máximo de 16 caracteres"
+                  }
                 })}
               />
               <Form.Text className="text-danger">
