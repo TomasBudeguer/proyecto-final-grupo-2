@@ -14,6 +14,8 @@ import CrearPedido from './components/views/pedido/CrearPedido';
 import EditarPedido from './components/views/pedido/EditarPedido';
 import DetallePedido from './components/views/DetallePedido';
 import Error404 from './components/views/Error404';
+import Salados from './components/views/producto/Salados';
+import BebidaCaliente from './components/views/producto/BebidaCaliente';
 
 function App() {
   return (
@@ -28,6 +30,14 @@ function App() {
       <Route exact path='/detalle-pedido/:id' element={<DetallePedido></DetallePedido>}></Route>
       <Route exact path='/crear-pedido' element={<CrearPedido></CrearPedido>}></Route>
       <Route exact path='/administrar/editar-pedido/:id' element={<EditarPedido></EditarPedido>}></Route>
+      <Route exact path='/productos-salados' element={<Salados></Salados>} ></Route>
+      <Route exact path='/productos-bebidas-calientes' element={<BebidaCaliente></BebidaCaliente>} ></Route>
+      {/* <Route exact path='/productos-bebida-fria' element={} ></Route>
+      <Route exact path='/productos-dulce' element={} ></Route>
+      <Route exact path='/productos-ensaladas' element={} ></Route>
+      <Route exact path='/productos-postres' element={} ></Route>
+      <Route exact path='/productos-tortas' element={} ></Route>
+      <Route exact path='/productos-tartas' element={} ></Route> */}
       <Route exact path='/login' element={<Login></Login>}></Route>
       <Route exact path='/registro' element={<Registro></Registro>}></Route>
       <Route exact path='/menu' element={<Menu></Menu>}></Route>
