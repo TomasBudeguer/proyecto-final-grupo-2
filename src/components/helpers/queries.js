@@ -217,3 +217,69 @@ export const listarProductosBebidasCalientesAPI = async () => {
     console.log(error);
   }
 };
+
+//bebidas frias
+export const listarProductosBebidasFriasAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-bebida-fria");
+    const ProductosBebidasFrias = await respuesta.json();
+    return ProductosBebidasFrias;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//dulces
+export const listarProductosDulcesAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-dulce");
+    const ProductosDulces = await respuesta.json();
+    return ProductosDulces;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//ensaladas
+export const listarProductosEnsaladasAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-ensaladas");
+    const ProdEnsaladas = await respuesta.json();
+    return ProdEnsaladas;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//postres
+export const listarProductosPostresAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-postres");
+    const ProdPostres = await respuesta.json();
+    return ProdPostres;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//tortas
+export const listarProductosTortasAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-tortas");
+    const ProdTortas = await respuesta.json();
+    return ProdTortas;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//tartas
+export const listarProductosTartasAPI = async () => {
+  try {
+    const respuesta = await fetch(URL + "-tartas");
+    const ProdTartas = await respuesta.json();
+    return ProdTartas;
+  } catch (error) {
+    console.log(error);
+  }
+};

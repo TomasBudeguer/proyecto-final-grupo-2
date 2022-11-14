@@ -18,17 +18,17 @@ const Menu = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to='/productos-bebidas-calientes'>Bebida Caliente</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">Bebida Fria</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-bebida-fria'>Bebida Fria</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.1">Dulce</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-dulce'>Dulce</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.1">Ensaladas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-ensaladas'>Ensaladas</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.1">Postres</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-postres'>Postres</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.1">Tortas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-tortas'>Tortas</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.1">Tartas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/productos-tartas'>Tartas</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

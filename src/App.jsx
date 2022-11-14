@@ -14,8 +14,14 @@ import CrearPedido from './components/views/pedido/CrearPedido';
 import EditarPedido from './components/views/pedido/EditarPedido';
 import DetallePedido from './components/views/DetallePedido';
 import Error404 from './components/views/Error404';
-import Salados from './components/views/producto/Salados';
-import BebidaCaliente from './components/views/producto/BebidaCaliente';
+import Salados from './components/views/producto/categorias/Salados';
+import BebidaCaliente from './components/views/producto/categorias/BebidaCaliente';
+import BebidaFria from './components/views/producto/categorias/BebidaFria';
+import Dulce from './components/views/producto/categorias/Dulce';
+import Ensaladas from './components/views/producto/categorias/Ensaladas';
+import Postres from './components/views/producto/categorias/Postres';
+import Tortas from './components/views/producto/categorias/Tortas';
+import Tartas from './components/views/producto/categorias/Tartas';
 
 function App() {
   return (
@@ -32,12 +38,12 @@ function App() {
       <Route exact path='/administrar/editar-pedido/:id' element={<EditarPedido></EditarPedido>}></Route>
       <Route exact path='/productos-salados' element={<Salados></Salados>} ></Route>
       <Route exact path='/productos-bebidas-calientes' element={<BebidaCaliente></BebidaCaliente>} ></Route>
-      {/* <Route exact path='/productos-bebida-fria' element={} ></Route>
-      <Route exact path='/productos-dulce' element={} ></Route>
-      <Route exact path='/productos-ensaladas' element={} ></Route>
-      <Route exact path='/productos-postres' element={} ></Route>
-      <Route exact path='/productos-tortas' element={} ></Route>
-      <Route exact path='/productos-tartas' element={} ></Route> */}
+      <Route exact path='/productos-bebida-fria' element={<BebidaFria></BebidaFria>} ></Route>
+      <Route exact path='/productos-dulce' element={<Dulce></Dulce>} ></Route>
+      <Route exact path='/productos-ensaladas' element={<Ensaladas></Ensaladas>} ></Route>
+      <Route exact path='/productos-postres' element={<Postres></Postres>} ></Route>
+      <Route exact path='/productos-tortas' element={<Tortas></Tortas>} ></Route>
+      <Route exact path='/productos-tartas' element={<Tartas></Tartas>} ></Route>
       <Route exact path='/login' element={<Login></Login>}></Route>
       <Route exact path='/registro' element={<Registro></Registro>}></Route>
       <Route exact path='/menu' element={<Menu></Menu>}></Route>
