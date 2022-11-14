@@ -14,14 +14,14 @@ import CrearPedido from './components/views/pedido/CrearPedido';
 import EditarPedido from './components/views/pedido/EditarPedido';
 import DetallePedido from './components/views/DetallePedido';
 import Error404 from './components/views/Error404';
-import Salados from './components/views/producto/Salados';
-import BebidaCaliente from './components/views/producto/BebidaCaliente';
-import BebidaFria from './components/views/producto/BebidaFria';
-import Dulce from './components/views/producto/Dulce';
-import Ensaladas from './components/views/producto/Ensaladas';
-import Postres from './components/views/producto/Postres';
-import Tortas from './components/views/producto/Tortas';
-import Tartas from './components/views/producto/Tartas';
+import Salados from './components/views/producto/categorias/Salados';
+import BebidaCaliente from './components/views/producto/categorias/BebidaCaliente';
+import BebidaFria from './components/views/producto/categorias/BebidaFria';
+import Dulce from './components/views/producto/categorias/Dulce';
+import Ensaladas from './components/views/producto/categorias/Ensaladas';
+import Postres from './components/views/producto/categorias/Postres';
+import Tortas from './components/views/producto/categorias/Tortas';
+import Tartas from './components/views/producto/categorias/Tartas';
 
 function App() {
   return (

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import { listarProductosBebidasCalientesAPI } from "../../helpers/queries";
-import CardProducto from "./CardProducto";
+import { listarProductosBebidasCalientesAPI } from "../../../helpers/queries";
+import CardProducto from "../CardProducto";
+
 
 const BebidaCaliente = () => {
     const [BebidasCalientes, setBebidasCalientes] = useState([])

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import { listarProductosTartasAPI } from "../../helpers/queries";
-import CardProducto from "./CardProducto";
+import { listarProductosTartasAPI } from "../../../helpers/queries";
+import CardProducto from "../CardProducto";
 
 const Tartas = () => {
     const [ProdTartas, setProdTartas] = useState([])
