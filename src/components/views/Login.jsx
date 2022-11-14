@@ -27,6 +27,15 @@ const Login = () => {
                   placeholder="Ingrese un email"
                   {...register("usuario", {
                     required: "El nombre de usuario es obligatorio",
+                    minLength: {
+                        value: 8,
+                        message: "Debe ingresar un mínimo de 8 caracteres"
+                    },
+                    maxLength: {
+                        value: 50,
+                        message: "Debe ingresar como máximo 50 caracteres"
+                    },
+                    pattern: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
                   })}
                 />
                 <Form.Text className="text-danger">
@@ -40,7 +49,7 @@ const Login = () => {
                   type="password"
                   placeholder="Password"
                   {...register("password", {
-                    required: "El nombre de password es obligatorio",
+                    required: "El password es obligatorio",
                   })}
                 />
                 <Form.Text className="text-danger">

@@ -31,5 +31,11 @@
       "estado": "Pendiente",
       "id": 2
     }
+  ],
+  "admin":[
+    {
+      "usuario": "joseluis@gmail.com",
+      "password": "123456"
+    }
   ]
 }
