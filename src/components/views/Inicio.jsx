@@ -53,24 +53,35 @@ const Inicio = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    setValue
   } = useForm({
     defaultValues: {
       nombreProducto: "",
     },
   });
 
+  const [mostrarBotonX, setmostrarBotonX] = useState(false);
+
   const onSubmit = (datos) => {
     console.log(datos);
     filtroBusqueda(datos).then((respuesta) => {
       setFiltrado(respuesta);
+      setmostrarBotonX(true);
     });
-    reset();
   };
 
-  const borrarFiltrado = ()=>{
-    setFiltrado([])
-  }
+  const borrarFiltrado = () => {
+    setFiltrado([]);
+    setValue("nombreProducto", "");
+    setmostrarBotonX(false);
+  };
+
+  const mostrarBoton =
+    mostrarBotonX === true ? (
+      <Button variant="danger" onClick={borrarFiltrado}>
+        <i className="bi bi-x-circle-fill"></i>
+      </Button>
+    ) : ("");
 
   return (
     <div className="mainSection">
@@ -120,22 +131,20 @@ const Inicio = () => {
                           >
                             Buscar
                           </Button>
-                          <Button variant="danger" onClick={borrarFiltrado}>
-                            <i className="bi bi-x-circle-fill"></i>
-                          </Button>
+                          {mostrarBoton}
                         </div>
                       </Col>
                     </Row>
                   </Form>
                 </Card.Header>
                 <Row className="justify-content-center">
-                    {filtrado.map((producto) => (
-                      <CardFiltro
+                  {filtrado.map((producto) => (
+                    <CardFiltro
                       key={producto._id}
                       producto={producto}
                       setProductos={setProductos}
                     ></CardFiltro>
-                    ))}
+                  ))}
                 </Row>
               </Card>
             </Col>
