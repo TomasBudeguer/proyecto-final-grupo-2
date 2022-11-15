@@ -14,7 +14,7 @@ export const consultarUsuario = async () => {
 
 export const crearUsuarioAPI = async (usuario) => {
   try {
-    const respuesta = await fetch(URLusuario, {
+    const respuesta = await fetch(`${URLusuario}/nuevo`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

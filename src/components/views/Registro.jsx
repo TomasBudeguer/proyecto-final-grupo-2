@@ -1,7 +1,12 @@
 import { Card, Container, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { crearUsuarioAPI } from "../helpers/queriesUsuarios";
+
 
 const Registro = () => {
+  const navegacion = useNavigate();
   const {
     register,
     handleSubmit,
@@ -10,6 +15,18 @@ const Registro = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    crearUsuarioAPI(data).then((respuesta) => {
+      if (respuesta.status === 201) {
+        Swal.fire(
+          "Usuario creado",
+          "El usuario fue creado correctamente",
+          "success"
+        );
+        navegacion("/administrador");
+      } else {
+        Swal.fire("Ocurrio un error", "Vuelva a intentarlo mas tarde", "error");
+      }
+    });
   };
 
   return (
@@ -27,12 +44,12 @@ const Registro = () => {
                   required: "El nombre de password es obligatorio",
                   minLength: {
                     value: 8,
-                    message: "Debe ingresar un mínimo de 8 caracteres"
+                    message: "Debe ingresar un mínimo de 8 caracteres",
                   },
                   maxLength: {
                     value: 50,
-                    message: "Debe ingresar un máximo de 50 caracteres"
-                  }
+                    message: "Debe ingresar un máximo de 50 caracteres",
+                  },
                 })}
               />
               <Form.Text className="text-danger">
@@ -48,13 +65,14 @@ const Registro = () => {
                   required: "El nombre de password es obligatorio",
                   minLength: {
                     value: 8,
-                    message: "Debe ingresar un mínimo de 8 caracteres"
+                    message: "Debe ingresar un mínimo de 8 caracteres",
                   },
                   maxLength: {
                     value: 200,
-                    message: "Debe ingresar un máximo de 50 caracteres"
+                    message: "Debe ingresar un máximo de 50 caracteres",
                   },
-                  pattern: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ 
+                  pattern:
+                    /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                 })}
               />
               <Form.Text className="text-danger">
@@ -71,12 +89,12 @@ const Registro = () => {
                   required: "El nombre de password es obligatorio",
                   minLength: {
                     value: 8,
-                    message: "Debe ingresar un mínimo de 8 caracteres"
+                    message: "Debe ingresar un mínimo de 8 caracteres",
                   },
                   maxLength: {
                     value: 16,
-                    message: "Debe ingresar un máximo de 16 caracteres"
-                  }
+                    message: "Debe ingresar un máximo de 16 caracteres",
+                  },
                 })}
               />
               <Form.Text className="text-danger">
