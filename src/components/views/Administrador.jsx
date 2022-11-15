@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { consultarAPI, consultarPedidosAPI } from "../helpers/queries";
+import { consultarUsuario } from "../helpers/queriesUsuarios";
 import ItemPedido from "./pedido/ItemPedido";
 import ItemProducto from "./producto/ItemProducto";
 import ItemUsuario from "./usuario/ItemUsuario";
@@ -9,6 +10,7 @@ import ItemUsuario from "./usuario/ItemUsuario";
 const Administrador = () => {
   const [productos, setProductos] = useState([]);
   const [pedidos, setPedidos] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
@@ -17,6 +19,9 @@ const Administrador = () => {
     consultarPedidosAPI().then((respuesta) => {
       setPedidos(respuesta);
     });
+    consultarUsuario().then((respuesta)=> {
+      setUsuarios(respuesta);
+    }) 
   }, []);
 
   return (
@@ -105,7 +110,13 @@ const Administrador = () => {
             </tr>
           </thead>
           <tbody>
-            <ItemUsuario></ItemUsuario>
+          {usuarios.map((usuario) => (
+              <ItemUsuario
+                key={usuario._id}
+                usuario={usuario}
+                setUsuarios={setUsuarios}
+              ></ItemUsuario>
+            ))}
           </tbody>
         </Table>
       </div>

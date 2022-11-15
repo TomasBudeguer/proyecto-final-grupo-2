@@ -1,13 +1,13 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const ItemUsuario = () => {
+const ItemUsuario = ({usuario, setUsuarios}) => {
   return (
     <tr>
-      <td>12</td>
-      <td>RollingUser</td>
-      <td>rolling@email.com</td>
-      <td>12345678</td>
+      <td>{usuario._id}</td>
+      <td>{usuario.nombreUsuario}</td>
+      <td>{usuario.email}</td>
+      <td>{usuario.password}</td>
       <td>
         <Link
           className="btn btn-warning mb-1 me-1"

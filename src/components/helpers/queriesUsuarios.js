@@ -1,10 +1,10 @@
-const URLusuario = "http://localhost:4000/apirestaurant/user/usuario"
+const URLusuario = "http://localhost:4000/apirestaurant/user"
 
 
 //Usuarios
 export const consultarUsuario = async () => {
   try {
-    const respuesta = await fetch(URLusuario);
+    const respuesta = await fetch(`${URLusuario}/nuevo`);
     const listaUsuarios = await respuesta.json();
     return listaUsuarios;
   } catch (error) {
