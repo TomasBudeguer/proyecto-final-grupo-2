@@ -1,25 +1,51 @@
 import { Card, Container, Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { crearUsuarioAPI } from "../helpers/queriesUsuarios";
+import { editarUsuarioAPI,obtenerUsuarioAPI,} from "../../helpers/queriesUsuarios";
+import { useEffect } from "react";
 
-
-const Registro = () => {
+const EditarUsuario = () => {
+  const { id } = useParams();
   const navegacion = useNavigate();
+
+  useEffect(() => {
+    obtenerUsuarioAPI(id).then((respuesta) => {
+      if (respuesta.status === 200) {
+        setValue("nombreUsuario", respuesta.dato.nombreUsuario);
+        setValue("email", respuesta.dato.email);
+        setValue("password", respuesta.dato.password);
+      } else {
+        Swal.fire(
+          "Ocurrio un error",
+          "Intente este paso en unos minutos",
+          "error"
+        );
+      }
+    });
+  }, []);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    setValue,
+  } = useForm({
+    defaultValues: {
+        nombreUsuario: "",
+        email: "",
+        password: ""
+    }
+  });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    crearUsuarioAPI(data).then((respuesta) => {
-      if (respuesta.status === 201) {
+  
+
+  const onSubmit = (usuario) => {
+    editarUsuarioAPI(id, usuario).then((respuesta) => {
+      if (respuesta.status === 200) {
         Swal.fire(
-          "Usuario creado",
-          "El usuario fue creado correctamente",
+          "Usuario editado",
+          "El usuario fue editado correctamente",
           "success"
         );
         navegacion("/administrador");
@@ -32,7 +58,7 @@ const Registro = () => {
   return (
     <Container className="mainSection">
       <Card className="my-5">
-        <Card.Header as="h5">Crear cuenta</Card.Header>
+        <Card.Header as="h5">Editar</Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3" controlId="formNombreApellido">
@@ -102,7 +128,7 @@ const Registro = () => {
               </Form.Text>
             </Form.Group>
             <Button variant="primary" type="submit">
-              Crear
+              Editar
             </Button>
           </Form>
         </Card.Body>
@@ -111,4 +137,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default EditarUsuario;

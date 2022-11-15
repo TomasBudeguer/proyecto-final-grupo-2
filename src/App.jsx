@@ -22,6 +22,7 @@ import Ensaladas from './components/views/producto/categorias/Ensaladas';
 import Postres from './components/views/producto/categorias/Postres';
 import Tortas from './components/views/producto/categorias/Tortas';
 import Tartas from './components/views/producto/categorias/Tartas';
+import EditarUsuario from './components/views/usuario/EditarUsuario';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       <Route exact path='/detalle-pedido/:id' element={<DetallePedido></DetallePedido>}></Route>
       <Route exact path='/crear-pedido' element={<CrearPedido></CrearPedido>}></Route>
       <Route exact path='/administrar/editar-pedido/:id' element={<EditarPedido></EditarPedido>}></Route>
+      <Route exact path='/administrar/editar-usuario/:id' element={<EditarUsuario></EditarUsuario>}></Route>
       <Route exact path='/productos-salados' element={<Salados></Salados>} ></Route>
       <Route exact path='/productos-bebidas-calientes' element={<BebidaCaliente></BebidaCaliente>} ></Route>
       <Route exact path='/productos-bebida-fria' element={<BebidaFria></BebidaFria>} ></Route>

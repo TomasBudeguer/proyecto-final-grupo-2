@@ -5,7 +5,6 @@ import {
   Button,
   Col,
   Card,
-  Badge,
 } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
 import { Link } from "react-router-dom";
