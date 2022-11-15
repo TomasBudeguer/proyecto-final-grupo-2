@@ -40,7 +40,7 @@ export const borrarUsuarioAPI = async (id) => {
 
 export const obtenerUsuarioAPI = async (id) => {
   try {
-    const respuesta = await fetch(URLusuario + "/" + id);
+    const respuesta = await fetch(`${URLusuario}/nuevo/${id}`);
     const usuarioBuscado = {
       dato: await respuesta.json(),
       status: respuesta.status,
@@ -53,7 +53,7 @@ export const obtenerUsuarioAPI = async (id) => {
 
 export const editarUsuarioAPI = async (id, datosActualizados) => {
   try {
-    const respuesta = await fetch(URLusuario + "/" + id, {
+    const respuesta = await fetch(`${URLusuario}/nuevo/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
