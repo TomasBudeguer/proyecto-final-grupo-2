@@ -29,7 +29,7 @@ export const crearUsuarioAPI = async (usuario) => {
 
 export const borrarUsuarioAPI = async (id) => {
   try {
-    const respuesta = await fetch(`${URLusuario}/${id}`, {
+    const respuesta = await fetch(`${URLusuario}/nuevo/${id}`, {
       method: "DELETE",
     });
     return respuesta;
