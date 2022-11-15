@@ -83,7 +83,6 @@ const Registro = () => {
                 {errors.password?.message}
               </Form.Text>
             </Form.Group>
-
             <Button variant="primary" type="submit">
               Crear
             </Button>
