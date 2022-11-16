@@ -10,7 +10,6 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
     setUsuarioLogueado({});
     navegacion("/");
   };
-  console.log(usuarioLogueado);
   return (
     <Navbar bg="light" expand="lg">
       <Container>

@@ -39,7 +39,7 @@ function App() {
       <Route exact path='/administrar/crear-producto' element={<CrearProducto></CrearProducto>}></Route>
       <Route exact path='/administrar/editar-producto/:id' element={<EditarProducto></EditarProducto>}></Route>
       <Route exact path='/detalle-pedido/:id' element={<DetallePedido></DetallePedido>}></Route>
-      <Route exact path='/crear-pedido' element={<CrearPedido></CrearPedido>}></Route>
+      <Route exact path='/crear-pedido' element={<CrearPedido usuarioLogueado={usuarioLogueado}></CrearPedido>}></Route>
       <Route exact path='/administrar/editar-pedido/:id' element={<EditarPedido></EditarPedido>}></Route>
       <Route exact path='/administrar/editar-usuario/:id' element={<EditarUsuario></EditarUsuario>}></Route>
       <Route exact path='/productos-salados' element={<Salados></Salados>} ></Route>

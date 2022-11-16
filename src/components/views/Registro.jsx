@@ -14,7 +14,6 @@ const Registro = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     crearUsuarioAPI(data).then((respuesta) => {
       if (respuesta.status === 201) {
         Swal.fire(
