@@ -41,7 +41,7 @@ const Registro = () => {
                 type="text"
                 placeholder="Ej: Pedro"
                 {...register("nombreUsuario", {
-                  required: "El nombre de password es obligatorio",
+                  required: "El nombre de usuario es obligatorio",
                   minLength: {
                     value: 8,
                     message: "Debe ingresar un mínimo de 8 caracteres",
@@ -53,7 +53,7 @@ const Registro = () => {
                 })}
               />
               <Form.Text className="text-danger">
-                {errors.nombre?.message}
+                {errors.nombreUsuario?.message}
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formEmail">
@@ -62,7 +62,7 @@ const Registro = () => {
                 type="email"
                 placeholder="juanperez@gmail.com"
                 {...register("email", {
-                  required: "El nombre de password es obligatorio",
+                  required: "El email es obligatorio",
                   minLength: {
                     value: 8,
                     message: "Debe ingresar un mínimo de 8 caracteres",
@@ -86,7 +86,7 @@ const Registro = () => {
                 type="password"
                 placeholder="Password"
                 {...register("password", {
-                  required: "El nombre de password es obligatorio",
+                  required: "El password es obligatorio",
                   minLength: {
                     value: 8,
                     message: "Debe ingresar un mínimo de 8 caracteres",

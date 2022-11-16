@@ -29,7 +29,7 @@ const Administrador = () => {
       <div>
         <div className="d-flex justify-content-between align-items-center">
           <aside>
-            <h2 className="display-4">Prouctos disponibles</h2>
+            <h2 className="display-4">Productos disponibles</h2>
           </aside>
           <aside>
             <Link className="btn btn-primary" to="/administrar/crear-producto">
