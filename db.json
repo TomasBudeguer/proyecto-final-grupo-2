@@ -34,8 +34,19 @@
   ],
   "admin":[
     {
+      "nombre": "Jose Luis",
       "usuario": "joseluis@gmail.com",
-      "password": "123456"
+      "password": "jose5678"
+    },
+    {
+      "nombre": "Nicolas",
+      "usuario": "nicolas@gmail.com",
+      "password": "nico5678"
+    },
+    {
+      "nombre": "Tomas",
+      "usuario": "tomas@gmail.com",
+      "password": "tomi5678"
     }
   ],
   "invitado":[
