@@ -1,16 +1,32 @@
 import { Form, Button, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
+import Swal from "sweetalert2";
+import { login } from "../helpers/queriesUsuarios";
 
 
-const Login = () => {
+const Login = ({setUsuarioLogueado}) => {
+const navigate = useNavigate();
     const {
       register,
       handleSubmit,
       formState: { errors },
     } = useForm();
   
-    const onSubmit = (data) => {
+    const onSubmit = (data) => { 
+      login(data).then((respuesta)=>{
+        if (respuesta){
+          localStorage.setItem("tokenUsuario", JSON.stringify(respuesta));
+          setUsuarioLogueado(respuesta);
+          navigate("/");
+        }else{
+          Swal.fire(
+            "Error",
+            "Nombre de usuario o password incorrecto",
+            "error"
+          );
+        }
+      })
       console.log(data);
     };
   
@@ -25,8 +41,8 @@ const Login = () => {
                 <Form.Control
                   type="email"
                   placeholder="Ingrese un email"
-                  {...register("usuario", {
-                    required: "El nombre de usuario es obligatorio",
+                  {...register("email", {
+                    required: "El mail es obligatorio",
                     minLength: {
                         value: 8,
                         message: "Debe ingresar un mínimo de 8 caracteres"

@@ -1,34 +1,78 @@
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import "bootstrap-icons/font/bootstrap-icons.css"
-const Menu = () => {
+import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
+  const navegacion = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("tokenUsuario");
+    setUsuarioLogueado({});
+    navegacion("/");
+  };
+  console.log(usuarioLogueado)
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to='/'>Restaurant</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          Restaurant
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-        <Nav.Link as={Link} to='/' className="ms-auto"><i className="bi bi-geo-alt-fill fs-2"></i></Nav.Link>
+          <Nav.Link as={Link} to="/" className="ms-auto">
+            <i className="bi bi-geo-alt-fill fs-2"></i>
+          </Nav.Link>
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to='/administrador'>Administrador</Nav.Link>
-            <Nav.Link as={Link} to='/login'>Login</Nav.Link>
-            <Nav.Link as={Link} to='/registro'>Registro</Nav.Link>
+            {usuarioLogueado.email ? (
+              <>
+                <Nav.Link as={Link} to="/administrador">
+                  Administrador
+                </Nav.Link>
+                <Button variant="dark" onClick={logout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+              <Nav.Link as={Link} to="/login">
+                Login
+              </Nav.Link>
+                <Nav.Link as={Link} to="/registro">
+                  Registro
+                </Nav.Link>
+              </>
+            )}
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to='/productos-salados'>Salados</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos-salados">
+                Salados
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/productos-bebidas-calientes'>Bebida Caliente</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos-bebidas-calientes">
+                Bebida Caliente
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/productos-bebida-fria'>Bebida Fria</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos-bebida-fria">
+                Bebida Fria
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/productos-dulce'>Dulce</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos-dulce">
+                Dulce
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/productos-ensaladas'>Ensaladas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos-ensaladas">
+                Ensaladas
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/productos-postres'>Postres</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos-postres">
+                Postres
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/productos-tortas'>Tortas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos-tortas">
+                Tortas
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/productos-tartas'>Tartas</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos-tartas">
+                Tartas
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
