@@ -23,11 +23,14 @@ import Postres from './components/views/producto/categorias/Postres';
 import Tortas from './components/views/producto/categorias/Tortas';
 import Tartas from './components/views/producto/categorias/Tartas';
 import EditarUsuario from './components/views/usuario/EditarUsuario';
+import { useState } from 'react';
 
 function App() {
+  const usuario = JSON.parse(localStorage.getItem("tokenLogin")) || {};
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
   return (
     <BrowserRouter>
-    <Menu></Menu>
+    <Menu usuarioLogueado={usuarioLogueado} setUsuarioLogueado={setUsuarioLogueado}></Menu>
     <Routes>
       <Route exact path='/' element={<Inicio></Inicio>}></Route>
       <Route exact path='/administrador' element={<Administrador></Administrador>}></Route>
@@ -46,7 +49,7 @@ function App() {
       <Route exact path='/productos-postres' element={<Postres></Postres>} ></Route>
       <Route exact path='/productos-tortas' element={<Tortas></Tortas>} ></Route>
       <Route exact path='/productos-tartas' element={<Tartas></Tartas>} ></Route>
-      <Route exact path='/login' element={<Login></Login>}></Route>
+      <Route exact path='/login' element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}></Route>
       <Route exact path='/registro' element={<Registro></Registro>}></Route>
       <Route exact path='/menu' element={<Menu></Menu>}></Route>
       <Route exact path='/footer' element={<Footer></Footer>}></Route>
