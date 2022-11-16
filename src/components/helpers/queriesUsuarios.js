@@ -1,6 +1,5 @@
-const URLusuario = "http://localhost:4000/apirestaurant/user"
-const URLlogin = "http://localhost:4000/apirestaurant/login"
-
+const URLusuario = "http://localhost:4000/apirestaurant/user";
+// const URLlogin = "http://localhost:4000/apirestaurant/login"
 
 //Usuarios
 export const consultarUsuario = async () => {
@@ -67,44 +66,33 @@ export const editarUsuarioAPI = async (id, datosActualizados) => {
   }
 };
 
-//Login
-export const crearUsuario = async (usuario) => {
+
+export const login = async (usuario) => {
   try {
-    console.log(usuario);
-    const respuesta = await fetch(URLlogin, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuario),
-    });
-    return respuesta;
+    //verificar si el usuario existe
+    const respuesta = await fetch(`${URLusuario}/nuevo`);
+    const listaUsuarios = await respuesta.json();
+    //buscar cual usuario tiene mi mail
+    const usuarioBuscado = listaUsuarios.find(
+      (itemUsuario) => itemUsuario.email === usuario.email
+    );
+    if (usuarioBuscado) {
+      console.log("email encontrado");
+      //verificar el password
+      if (usuarioBuscado.password === usuario.password) {
+        return usuarioBuscado;
+      }
+    } else {
+      console.log("el mail no existe");
+      return;
+    }
   } catch (error) {
-    console.log(error);
+    console.log("errores en el login");
     return;
   }
 };
 
-
-export const login = async (usuario) =>{
-  try{
-    //verificar si el usuario existe
-    const respuesta = await fetch(URLlogin);
-    const listaUsuarios = await respuesta.json();
-    //buscar cual usuario tiene mi mail
-    const usuarioBuscado = listaUsuarios.find((itemUsuario)=> itemUsuario.email === usuario.email )
-    if(usuarioBuscado){
-      console.log('email encontrado')
-      //verificar el password
-      if(usuarioBuscado.password === usuario.password ){
-        return usuarioBuscado
-      }
-    }else{
-      console.log('el mail no existe')
-      return
-    }
-  }catch(error){
-    console.log('errores en el login')
-    return
-  }
-}
+// export const userAdmin = {
+//   email: "admin@resto.com",
+//   password: "resto1234",
+// };

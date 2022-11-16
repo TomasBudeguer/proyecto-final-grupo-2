@@ -22,7 +22,7 @@ const Registro = () => {
           "El usuario fue creado correctamente",
           "success"
         );
-        navegacion("/administrador");
+        navegacion("/login");
       } else {
         Swal.fire("Ocurrio un error", "Vuelva a intentarlo mas tarde", "error");
       }

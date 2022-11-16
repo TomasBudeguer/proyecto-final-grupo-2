@@ -26,7 +26,7 @@ import EditarUsuario from './components/views/usuario/EditarUsuario';
 import { useState } from 'react';
 
 function App() {
-  const usuario = JSON.parse(localStorage.getItem("tokenLogin")) || {};
+  const usuario = JSON.parse(localStorage.getItem("tokenUsuario")) || {};
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
   return (
     <BrowserRouter>

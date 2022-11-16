@@ -15,11 +15,10 @@ const navigate = useNavigate();
   
     const onSubmit = (data) => { 
       login(data).then((respuesta)=>{
-        console.log(respuesta);
         if (respuesta){
           localStorage.setItem("tokenUsuario", JSON.stringify(respuesta));
           setUsuarioLogueado(respuesta);
-          navigate("/administrador");
+          navigate("/");
         }else{
           Swal.fire(
             "Error",
@@ -42,7 +41,7 @@ const navigate = useNavigate();
                 <Form.Control
                   type="email"
                   placeholder="Ingrese un email"
-                  {...register("usuario", {
+                  {...register("email", {
                     required: "El mail es obligatorio",
                     minLength: {
                         value: 8,
