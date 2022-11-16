@@ -1,6 +1,7 @@
 import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { userAdmin } from "../helpers/queriesUsuarios";
 
 const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
   const navegacion = useNavigate();
@@ -9,7 +10,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
     setUsuarioLogueado({});
     navegacion("/");
   };
-  console.log(usuarioLogueado)
+  console.log(usuarioLogueado);
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -22,25 +23,6 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             <i className="bi bi-geo-alt-fill fs-2"></i>
           </Nav.Link>
           <Nav className="ms-auto">
-            {usuarioLogueado.email ? (
-              <>
-                <Nav.Link as={Link} to="/administrador">
-                  Administrador
-                </Nav.Link>
-                <Button variant="dark" onClick={logout}>
-                  Logout
-                </Button>
-              </>
-            ) : (
-              <>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
-                <Nav.Link as={Link} to="/registro">
-                  Registro
-                </Nav.Link>
-              </>
-            )}
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/productos-salados">
                 Salados
@@ -74,6 +56,53 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 Tartas
               </NavDropdown.Item>
             </NavDropdown>
+            {usuarioLogueado.email === userAdmin.email &&
+            usuarioLogueado.password === userAdmin.password ? (
+              <>
+                <Nav.Link as={Link} to="/administrador">
+                  Administrador
+                </Nav.Link>
+                <Button variant="dark" onClick={logout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                {usuarioLogueado.email ? (
+                  <Button variant="dark" onClick={logout}>
+                    Logout
+                  </Button>
+                ) : (
+                  <>
+                    <Nav.Link as={Link} to="/login">
+                      Login
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/registro">
+                      Registro
+                    </Nav.Link>
+                  </>
+                )}
+              </>
+            )}
+            {/* {usuarioLogueado.email ? (
+              <>
+                // <Nav.Link as={Link} to="/administrador">
+                //   Administrador
+                // </Nav.Link>
+                <Button variant="dark" onClick={logout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+              <Nav.Link as={Link} to="/login">
+                Login
+              </Nav.Link>
+                <Nav.Link as={Link} to="/registro">
+                  Registro
+                </Nav.Link>
+              </>
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </Container>

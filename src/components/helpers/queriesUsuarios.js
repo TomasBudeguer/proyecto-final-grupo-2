@@ -92,7 +92,7 @@ export const login = async (usuario) => {
   }
 };
 
-// export const userAdmin = {
-//   email: "admin@resto.com",
-//   password: "resto1234",
-// };
+export const userAdmin = {
+  email: "admin@resto.com",
+  password: "resto1234",
+};
