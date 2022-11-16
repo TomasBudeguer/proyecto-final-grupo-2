@@ -61,6 +61,9 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 <Nav.Link as={Link} to="/administrador">
                   Administrador
                 </Nav.Link>
+                <Nav.Link as={Link} to="/perfil">
+                <i className="bi bi-person-circle"></i> {usuarioLogueado.nombreUsuario}
+                </Nav.Link>
                 <Button variant="dark" onClick={logout}>
                   Logout
                 </Button>
@@ -68,9 +71,14 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             ) : (
               <>
                 {usuarioLogueado.email ? (
-                  <Button variant="dark" onClick={logout}>
-                    Logout
-                  </Button>
+                  <>
+                    <Nav.Link as={Link} to="/perfil">
+                      {usuarioLogueado.nombreUsuario}
+                    </Nav.Link>
+                    <Button variant="dark" onClick={logout}>
+                      Logout
+                    </Button>
+                  </>
                 ) : (
                   <>
                     <Nav.Link as={Link} to="/login">

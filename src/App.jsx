@@ -24,6 +24,7 @@ import Tortas from './components/views/producto/categorias/Tortas';
 import Tartas from './components/views/producto/categorias/Tartas';
 import EditarUsuario from './components/views/usuario/EditarUsuario';
 import { useState } from 'react';
+import Perfil from './components/views/usuario/Perfil';
 
 function App() {
   const usuario = JSON.parse(localStorage.getItem("tokenUsuario")) || {};
@@ -42,6 +43,7 @@ function App() {
       <Route exact path='/crear-pedido' element={<CrearPedido usuarioLogueado={usuarioLogueado}></CrearPedido>}></Route>
       <Route exact path='/administrar/editar-pedido/:id' element={<EditarPedido></EditarPedido>}></Route>
       <Route exact path='/administrar/editar-usuario/:id' element={<EditarUsuario></EditarUsuario>}></Route>
+      <Route exact path='/perfil' element={<Perfil usuarioLogueado={usuarioLogueado}></Perfil>}></Route>
       <Route exact path='/productos-salados' element={<Salados></Salados>} ></Route>
       <Route exact path='/productos-bebidas-calientes' element={<BebidaCaliente></BebidaCaliente>} ></Route>
       <Route exact path='/productos-bebida-fria' element={<BebidaFria></BebidaFria>} ></Route>
