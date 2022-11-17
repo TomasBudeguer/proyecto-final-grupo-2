@@ -106,7 +106,7 @@ const Administrador = () => {
               <th>Nombre de usuario</th>
               <th>Email</th>
               <th>Contraseña</th>
-              {/* <th>Opciones</th> */}
+              <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
