@@ -48,7 +48,7 @@ const EditarUsuario = () => {
           "El usuario fue editado correctamente",
           "success"
         );
-        navegacion("/administrador");
+        navegacion("/administrar");
       } else {
         Swal.fire("Ocurrio un error", "Vuelva a intentarlo mas tarde", "error");
       }

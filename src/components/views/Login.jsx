@@ -18,7 +18,7 @@ const navigate = useNavigate();
         if (respuesta){
           localStorage.setItem("tokenUsuario", JSON.stringify(respuesta));
           setUsuarioLogueado(respuesta);
-          navigate("/");
+          navigate("/administrar");
         }else{
           Swal.fire(
             "Error",
