@@ -27,16 +27,16 @@ export const crearUsuarioAPI = async (usuario) => {
   }
 };
 
-export const borrarUsuarioAPI = async (id) => {
-  try {
-    const respuesta = await fetch(`${URLusuario}/nuevo/${id}`, {
-      method: "DELETE",
-    });
-    return respuesta;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const borrarUsuarioAPI = async (id) => {
+//   try {
+//     const respuesta = await fetch(`${URLusuario}/nuevo/${id}`, {
+//       method: "DELETE",
+//     });
+//     return respuesta;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 export const obtenerUsuarioAPI = async (id) => {
   try {
@@ -51,20 +51,20 @@ export const obtenerUsuarioAPI = async (id) => {
   }
 };
 
-export const editarUsuarioAPI = async (id, datosActualizados) => {
-  try {
-    const respuesta = await fetch(`${URLusuario}/nuevo/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(datosActualizados),
-    });
-    return respuesta;
-  } catch (error) {
-    console.log(error);
-  }
-};
+// export const editarUsuarioAPI = async (id, datosActualizados) => {
+//   try {
+//     const respuesta = await fetch(`${URLusuario}/nuevo/${id}`, {
+//       method: "PUT",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(datosActualizados),
+//     });
+//     return respuesta;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 
 export const login = async (usuario) => {
