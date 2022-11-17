@@ -19,7 +19,8 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav.Link as={Link} to="/" className="ms-auto">
-            <i className="bi bi-geo-alt-fill fs-2"></i>
+            <img src="https://play.hbomax.com/40f1ec3e7380accdae648d90d4366e8f.png" alt="hbo" />
+            {/* <i className="bi bi-geo-alt-fill fs-2"></i> */}
           </Nav.Link>
           <Nav className="ms-auto">
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
