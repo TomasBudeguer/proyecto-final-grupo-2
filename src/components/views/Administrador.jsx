@@ -33,7 +33,7 @@ const Administrador = () => {
           </aside>
           <aside>
             <Link className="btn btn-primary" to="/administrar/crear-producto">
-              Agregar
+              Agregar producto
             </Link>
           </aside>
         </div>
@@ -94,7 +94,7 @@ const Administrador = () => {
           </aside>
           <aside>
             <Link className="btn btn-primary" to="/registro">
-              Agregar
+              Agregar usuario
             </Link>
           </aside>
         </div>
@@ -106,7 +106,7 @@ const Administrador = () => {
               <th>Nombre de usuario</th>
               <th>Email</th>
               <th>Contraseña</th>
-              <th>Opciones</th>
+              {/* <th>Opciones</th> */}
             </tr>
           </thead>
           <tbody>
