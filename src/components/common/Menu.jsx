@@ -58,7 +58,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             {usuarioLogueado.email === userAdmin.email &&
             usuarioLogueado.password === userAdmin.password ? (
               <>
-                <Nav.Link as={Link} to="/administrador">
+                <Nav.Link as={Link} to="/administrar">
                   Administrador
                 </Nav.Link>
                 <Nav.Link as={Link} to="/perfil">

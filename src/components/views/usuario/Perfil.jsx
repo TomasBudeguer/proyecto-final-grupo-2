@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Row, Card } from "react-bootstrap";
+import { Container, Row, Card } from "react-bootstrap";
 import { consultarPedidosPersonalesAPI } from "../../helpers/queries";
 import CardPedido from "../pedido/CardPedido";
 

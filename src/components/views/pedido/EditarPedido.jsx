@@ -46,7 +46,7 @@ const EditarPedido = () => {
           "El pedido fue actualizado correctamente",
           "success"
         );
-        navegacion("/administrador");
+        navegacion("/administrar");
       } else {
         Swal.fire(
           "Ocurrio un error",

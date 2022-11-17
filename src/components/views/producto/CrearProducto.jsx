@@ -31,7 +31,7 @@ const CrearProducto = () => {
           "success"
         );
         reset();
-        navegacion('/administrador')
+        navegacion('/administrar')
       } else {
         Swal.fire("Ocurrio un error", "Vuelva a intentarlo mas tarde", "error");
       }
