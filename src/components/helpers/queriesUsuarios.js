@@ -1,5 +1,5 @@
 const URLusuario = "http://localhost:4000/apirestaurant/user";
-// const URLlogin = "http://localhost:4000/apirestaurant/login"
+
 
 //Usuarios
 export const consultarUsuario = async () => {
@@ -27,16 +27,16 @@ export const crearUsuarioAPI = async (usuario) => {
   }
 };
 
-// export const borrarUsuarioAPI = async (id) => {
-//   try {
-//     const respuesta = await fetch(`${URLusuario}/nuevo/${id}`, {
-//       method: "DELETE",
-//     });
-//     return respuesta;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const borrarUsuarioAPI = async (id) => {
+  try {
+    const respuesta = await fetch(`${URLusuario}/nuevo/${id}`, {
+      method: "DELETE",
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const obtenerUsuarioAPI = async (id) => {
   try {
