@@ -179,6 +179,23 @@ export const listaPedidosCanceladosAPI = async () => {
   }
 };
 
+// pedidos personales
+export const consultarPedidosPersonalesAPI = async (usuario) => {
+  try {
+    const respuesta = await fetch(URLpedidos + "-personales", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    const pedidosPersonales = await respuesta.json()
+    return pedidosPersonales;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // filtro de busqueda
 export const filtroBusqueda = async (producto) => {
   try {

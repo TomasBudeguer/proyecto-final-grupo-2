@@ -43,7 +43,6 @@ const EditarProducto = () => {
   });
 
   const onSubmit = (producto) => {
-    console.log(producto);
     editarProductoAPI(id, producto).then((respuesta) => {
       if (respuesta.status === 200) {
         Swal.fire(
