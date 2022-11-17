@@ -35,7 +35,7 @@ const Registro = () => {
         <Card.Body>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3" controlId="formNombreApellido">
-              <Form.Label>Nombre</Form.Label>
+              <Form.Label>Nombre de Usuario</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ej: Pedro"
