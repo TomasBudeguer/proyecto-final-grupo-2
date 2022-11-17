@@ -27,7 +27,6 @@ const navigate = useNavigate();
           );
         }
       })
-      console.log(data);
     };
   
     return (

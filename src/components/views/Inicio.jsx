@@ -62,7 +62,6 @@ const Inicio = () => {
   const [mostrarBotonX, setmostrarBotonX] = useState(false);
 
   const onSubmit = (datos) => {
-    console.log(datos);
     filtroBusqueda(datos).then((respuesta) => {
       setFiltrado(respuesta);
       setmostrarBotonX(true);

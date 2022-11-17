@@ -14,14 +14,13 @@ import { consultarAPI, crearPedidoAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
 // import MenuDisponible from "./MenuDisponible";
 
-const CrearPedido = () => {
+const CrearPedido = ({usuarioLogueado}) => {
   const [productos, setProductos] = useState([]);
 
   const [menuPedido, setMenuPedido] = useState([]);
 
   const agregarMenu = (producto) => {
     setMenuPedido([...menuPedido, " " + producto.nombreProducto]);
-    console.log(menuPedido);
   };
 
   useEffect(() => {
@@ -39,7 +38,7 @@ const CrearPedido = () => {
     setValue,
   } = useForm({
     defaultValues: {
-      nombreUsuario: "",
+      nombreUsuario: usuarioLogueado.nombreUsuario,
       pedido: "",
       estado: "Pendiente",
     },
@@ -118,6 +117,7 @@ const CrearPedido = () => {
               <Form.Control
                 type="text"
                 placeholder="Ej: RollingUser"
+                disabled
                 {...register("nombreUsuario", {
                   required: "Este dato es obligatorio",
                   minLength: {
