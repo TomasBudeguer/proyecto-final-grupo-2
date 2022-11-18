@@ -7,7 +7,7 @@ import {
   Col,
   Badge,
 } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { consultarAPI, crearPedidoAPI } from "../../helpers/queries";
@@ -19,14 +19,16 @@ const CrearPedido = ({ usuarioLogueado }) => {
   const [productos, setProductos] = useState([]);
 
   const [menuPedido, setMenuPedido] = useState([]);
+  const [menuPrecio, setMenuPrecio] = useState([]);
+  const [suma, setSuma] = useState("");
 
   const agregarMenu = (producto) => {
-    setMenuPedido([...menuPedido, " " + producto.nombreProducto]);
+    setMenuPedido([...menuPedido, ` ${producto.nombreProducto} $${producto.precio}`]);
+    setMenuPrecio([...menuPrecio, producto.precio]);
   };
 
   const borrarItem = (producto) => {
     let arregloModificado = menuPedido.filter((item) => item !== producto);
-    // actualizo el state
     setMenuPedido(arregloModificado);
   };
 
@@ -35,6 +37,10 @@ const CrearPedido = ({ usuarioLogueado }) => {
       setProductos(respuesta);
     });
     setValue("pedido", menuPedido);
+    const total = menuPrecio
+      .map((precio) => Number(precio))
+      .reduce((a, b) => a + b, 0);
+    setSuma(total);
   }, [menuPedido]);
 
   const {
@@ -70,9 +76,9 @@ const CrearPedido = ({ usuarioLogueado }) => {
   };
 
   return (
-    <Container className="my-3 mainSection">
+    <Container className="my-1 mainSection">
       <div className="mb-5">
-        <h3>Menu disponible:</h3>
+        <h3 className="display-4 text-center mb-3">Menu disponible:</h3>
         <Row>
           {productos.map((producto) => (
             <Col sm={12} md={3} lg={2} key={producto._id}>
@@ -111,10 +117,18 @@ const CrearPedido = ({ usuarioLogueado }) => {
           ))}
         </Row> */}
         </Row>
-        <ListaPedido
-          menuPedido={menuPedido}
-          borrarItem={borrarItem}
-        ></ListaPedido>
+        {menuPedido.length === 0 ? "" :<><Card>
+          <Card.Header>
+            <h3>Productos seleccionados</h3>
+          </Card.Header>
+          <Card.Body>
+            <ListaPedido
+              menuPedido={menuPedido}
+              borrarItem={borrarItem}
+            ></ListaPedido>
+          </Card.Body>
+          <Card.Footer>{suma === 0 ? "" : <h3>Total: ${suma}</h3>}</Card.Footer>
+        </Card></>}
         <hr />
       </div>
       <Card>
@@ -146,13 +160,12 @@ const CrearPedido = ({ usuarioLogueado }) => {
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formPedido">
-              <Form.Label>
-                Pedido* (Agregue la cantidad de productos de forma manual)
-              </Form.Label>
+              <Form.Label>Pedido*</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Ej: 1 Pizza especial"
+                placeholder="Presione el boton ''Agrgar al pedido'' "
                 as="textarea"
+                disabled
                 style={{ height: "100px" }}
                 {...register("pedido", {
                   required: "Este dato es obligatorio",

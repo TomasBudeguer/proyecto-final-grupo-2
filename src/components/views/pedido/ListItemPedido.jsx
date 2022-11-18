@@ -1,11 +1,13 @@
-import { ListGroup, Button } from "react-bootstrap";
+import { ListGroup, Button, Col } from "react-bootstrap";
 
 const ListItemPedido = ({producto, borrarItem}) => {
     return (
-        <ListGroup.Item className="d-flex justify-content-between">
+      <Col sm={12} md={6} lg={4}>
+        <ListGroup.Item className="d-flex justify-content-between rounded mb-2">
       {producto}
       <Button variant="danger" onClick={()=> borrarItem(producto)}>Borrar</Button>
     </ListGroup.Item>
+      </Col>
     );
 };
 
