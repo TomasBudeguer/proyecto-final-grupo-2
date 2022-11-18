@@ -23,8 +23,14 @@ const CrearPedido = ({ usuarioLogueado }) => {
   const [suma, setSuma] = useState("");
 
   const agregarMenu = (producto) => {
-    setMenuPedido([...menuPedido, ` ${producto.nombreProducto} $${producto.precio}`]);
-    setMenuPrecio([...menuPrecio, producto.precio]);
+    const prodNuevo = {
+      nombreProducto: producto.nombreProducto,
+      precio: producto.precio
+    }
+    console.log(prodNuevo)
+     setMenuPedido([...menuPedido, prodNuevo]);
+    // setMenuPedido([...menuPedido, ` ${producto.nombreProducto} $${producto.precio}`]);
+    // setMenuPrecio([...menuPrecio, producto.precio]);
   };
 
   const borrarItem = (producto) => {
@@ -36,9 +42,10 @@ const CrearPedido = ({ usuarioLogueado }) => {
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
     });
-    setValue("pedido", menuPedido);
-    const total = menuPrecio
-      .map((precio) => Number(precio))
+    console.log(menuPedido)
+    setValue("pedido", menuPedido[0]);
+    const total = menuPedido
+      .map((producto) => Number(producto.precio))
       .reduce((a, b) => a + b, 0);
     setSuma(total);
     setValue("total", total);
