@@ -7,7 +7,7 @@ import {
   Col,
   Badge,
 } from "react-bootstrap";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { consultarAPI, crearPedidoAPI } from "../../helpers/queries";
@@ -41,6 +41,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
       .map((precio) => Number(precio))
       .reduce((a, b) => a + b, 0);
     setSuma(total);
+    setValue("total", total);
   }, [menuPedido]);
 
   const {
@@ -53,6 +54,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
     defaultValues: {
       nombreUsuario: usuarioLogueado.nombreUsuario,
       pedido: "",
+      total: "",
       estado: "Pendiente",
     },
   });
@@ -177,6 +179,28 @@ const CrearPedido = ({ usuarioLogueado }) => {
               />
               <Form.Text className="text-danger">
                 {errors.pedido?.message}
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formTotal">
+              <Form.Label>Monto total</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="El total se cargara a medida que usted ingrese productos"
+                disabled
+                {...register("total", {
+                  required: "Este dato es obligatorio",
+                  min: {
+                    value: 1,
+                    message: "El total debe ser como minimo $1",
+                  },
+                  max: {
+                    value: 1000000,
+                    message: "El total debe ser como minimo $1000000",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger">
+                {errors.total?.message}
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formEstado">
