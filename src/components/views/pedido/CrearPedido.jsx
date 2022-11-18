@@ -12,15 +12,22 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { consultarAPI, crearPedidoAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
+import ListaPedido from "./ListaPedido";
 // import MenuDisponible from "./MenuDisponible";
 
-const CrearPedido = ({usuarioLogueado}) => {
+const CrearPedido = ({ usuarioLogueado }) => {
   const [productos, setProductos] = useState([]);
 
   const [menuPedido, setMenuPedido] = useState([]);
 
   const agregarMenu = (producto) => {
     setMenuPedido([...menuPedido, " " + producto.nombreProducto]);
+  };
+
+  const borrarItem = (producto) => {
+    let arregloModificado = menuPedido.filter((item) => item !== producto);
+    // actualizo el state
+    setMenuPedido(arregloModificado);
   };
 
   useEffect(() => {
@@ -104,6 +111,10 @@ const CrearPedido = ({usuarioLogueado}) => {
           ))}
         </Row> */}
         </Row>
+        <ListaPedido
+          menuPedido={menuPedido}
+          borrarItem={borrarItem}
+        ></ListaPedido>
         <hr />
       </div>
       <Card>
