@@ -135,8 +135,10 @@ const CrearPedido = ({ usuarioLogueado }) => {
               borrarItem={borrarItem}
             ></ListaPedido>
           </Card.Body>
-          <Card.Footer>{suma === 0 ? "" : <h3>Total: ${suma}</h3>}</Card.Footer>
-        </Card></>}
+          <Card.Footer>{suma === 0 ? "" : <h3>Total: ${suma}</h3>}
+          </Card.Footer>
+        </Card>
+        <h4 className="text-center display-5"><i className="bi bi-arrow-down fs-2">Confirmer su pedido</i><i className="bi bi-arrow-down fs-2"></i></h4></>}
         <hr />
       </div>
       <Card>

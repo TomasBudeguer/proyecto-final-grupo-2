@@ -63,7 +63,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                   Administrador
                 </Nav.Link>
                 <Nav.Link as={Link} to="/perfil">
-                <i className="bi bi-person-circle"></i> {usuarioLogueado.nombreUsuario}
+                <i className="bi bi-lock-fill"></i> {usuarioLogueado.nombreUsuario}
                 </Nav.Link>
                 <Button variant="dark" onClick={logout}>
                   Logout
