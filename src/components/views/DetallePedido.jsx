@@ -7,6 +7,7 @@ import { obtenerPedidoAPI } from "../helpers/queries";
 const DetallePedido = () => {
   const [nombreUsuario, setNombreUsuario] = useState("");
   const [pedido, setPedido] = useState("");
+  const [total, setTotal] = useState("");
   const [estado, setEstado] = useState("");
   const { id } = useParams();
 
@@ -15,6 +16,7 @@ const DetallePedido = () => {
       if (respuesta.status === 200) {
         setNombreUsuario(respuesta.dato.nombreUsuario);
         setPedido(respuesta.dato.pedido);
+        setTotal(respuesta.dato.total);
         setEstado(respuesta.dato.estado);
       } else {
         Swal.fire(
@@ -34,8 +36,11 @@ const DetallePedido = () => {
         </Card.Header>
         <Card.Body>
           <Badge bg="success fs-6 mb-2 ">{estado}</Badge>
-          <Card.Text>Pedido: <br /> {pedido}</Card.Text>
+          <Card.Text>Pedido: <br /> {`${pedido}`}</Card.Text>
         </Card.Body>
+        <Card.Footer>
+          <Card.Text>Total: ${total}</Card.Text>
+        </Card.Footer>
       </Card>
     </Container>
   );

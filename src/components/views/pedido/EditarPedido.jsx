@@ -14,6 +14,7 @@ const EditarPedido = () => {
       if (respuesta.status === 200) {
         setValue("nombreUsuario", respuesta.dato.nombreUsuario);
         setValue("pedido", respuesta.dato.pedido);
+        setValue("total", respuesta.dato.total);
         setValue("estado", respuesta.dato.estado);
       } else {
         Swal.fire(
@@ -34,6 +35,7 @@ const EditarPedido = () => {
     defaultValues: {
       nombreUsuario: "",
       pedido: "",
+      total: "",
       estado: "",
     },
   });
@@ -102,6 +104,27 @@ const EditarPedido = () => {
             {errors.pedido?.message}
           </Form.Text>
         </Form.Group>
+        <Form.Group className="mb-3" controlId="formTotal">
+              <Form.Label>Monto total</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="El total se cargara a medida que usted ingrese productos"
+                {...register("total", {
+                  required: "Este dato es obligatorio",
+                  min: {
+                    value: 1,
+                    message: "El total debe ser como minimo $1",
+                  },
+                  max: {
+                    value: 1000000,
+                    message: "El total debe ser como minimo $1000000",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger">
+                {errors.total?.message}
+              </Form.Text>
+            </Form.Group>
         <Form.Group className="mb-3" controlId="formEstado">
           <Form.Label>Estado</Form.Label>
           <Form.Select

@@ -12,22 +12,42 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { consultarAPI, crearPedidoAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
+import ListaPedido from "./ListaPedido";
 // import MenuDisponible from "./MenuDisponible";
 
-const CrearPedido = ({usuarioLogueado}) => {
+const CrearPedido = ({ usuarioLogueado }) => {
   const [productos, setProductos] = useState([]);
 
   const [menuPedido, setMenuPedido] = useState([]);
+  const [menuPrecio, setMenuPrecio] = useState([]);
+  const [suma, setSuma] = useState("");
 
   const agregarMenu = (producto) => {
-    setMenuPedido([...menuPedido, " " + producto.nombreProducto]);
+    const prodNuevo = {
+      nombreProducto: producto.nombreProducto,
+      precio: producto.precio
+    }
+     setMenuPedido([...menuPedido, prodNuevo]);
+    // setMenuPedido([...menuPedido, ` ${producto.nombreProducto} $${producto.precio}`]);
+    // setMenuPrecio([...menuPrecio, producto.precio]);
+  };
+
+  const borrarItem = (producto) => {
+    let arregloModificado = menuPedido.filter((item) => item !== producto);
+    setMenuPedido(arregloModificado);
   };
 
   useEffect(() => {
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
     });
-    setValue("pedido", menuPedido);
+    const pedidoFinal = menuPedido.map((producto)=> producto.nombreProducto)
+    setValue("pedido", pedidoFinal);
+    const total = menuPedido
+      .map((producto) => Number(producto.precio))
+      .reduce((a, b) => a + b, 0);
+    setSuma(total);
+    setValue("total", total);
   }, [menuPedido]);
 
   const {
@@ -40,6 +60,7 @@ const CrearPedido = ({usuarioLogueado}) => {
     defaultValues: {
       nombreUsuario: usuarioLogueado.nombreUsuario,
       pedido: "",
+      total: "",
       estado: "Pendiente",
     },
   });
@@ -63,9 +84,9 @@ const CrearPedido = ({usuarioLogueado}) => {
   };
 
   return (
-    <Container className="my-3 mainSection">
+    <Container className="my-1 mainSection">
       <div className="mb-5">
-        <h3>Menu disponible:</h3>
+        <h3 className="display-4 text-center mb-3">Menu disponible:</h3>
         <Row>
           {productos.map((producto) => (
             <Col sm={12} md={3} lg={2} key={producto._id}>
@@ -104,6 +125,20 @@ const CrearPedido = ({usuarioLogueado}) => {
           ))}
         </Row> */}
         </Row>
+        {menuPedido.length === 0 ? "" :<><Card>
+          <Card.Header>
+            <h3>Productos seleccionados</h3>
+          </Card.Header>
+          <Card.Body>
+            <ListaPedido
+              menuPedido={menuPedido}
+              borrarItem={borrarItem}
+            ></ListaPedido>
+          </Card.Body>
+          <Card.Footer>{suma === 0 ? "" : <h3>Total: ${suma}</h3>}
+          </Card.Footer>
+        </Card>
+        <h4 className="text-center display-5"><i className="bi bi-arrow-down fs-2">Confirmer su pedido</i><i className="bi bi-arrow-down fs-2"></i></h4></>}
         <hr />
       </div>
       <Card>
@@ -135,13 +170,12 @@ const CrearPedido = ({usuarioLogueado}) => {
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formPedido">
-              <Form.Label>
-                Pedido* (Agregue la cantidad de productos de forma manual)
-              </Form.Label>
+              <Form.Label>Pedido*</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Ej: 1 Pizza especial"
+                placeholder="Presione el boton ''Agrgar al pedido'' "
                 as="textarea"
+                disabled
                 style={{ height: "100px" }}
                 {...register("pedido", {
                   required: "Este dato es obligatorio",
@@ -153,6 +187,28 @@ const CrearPedido = ({usuarioLogueado}) => {
               />
               <Form.Text className="text-danger">
                 {errors.pedido?.message}
+              </Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formTotal">
+              <Form.Label>Monto total</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="El total se cargara a medida que usted ingrese productos"
+                disabled
+                {...register("total", {
+                  required: "Este dato es obligatorio",
+                  min: {
+                    value: 1,
+                    message: "El total debe ser como minimo $1",
+                  },
+                  max: {
+                    value: 1000000,
+                    message: "El total debe ser como minimo $1000000",
+                  },
+                })}
+              />
+              <Form.Text className="text-danger">
+                {errors.total?.message}
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formEstado">

@@ -1,11 +1,4 @@
-import {
-  Container,
-  Row,
-  Form,
-  Button,
-  Col,
-  Card,
-} from "react-bootstrap";
+import { Container, Row, Form, Button, Col, Card } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -52,7 +45,7 @@ const Inicio = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue
+    setValue,
   } = useForm({
     defaultValues: {
       nombreProducto: "",
@@ -79,7 +72,9 @@ const Inicio = () => {
       <Button variant="danger" onClick={borrarFiltrado}>
         <i className="bi bi-x-circle-fill"></i>
       </Button>
-    ) : ("");
+    ) : (
+      ""
+    );
 
   return (
     <div className="mainSection">
@@ -170,50 +165,102 @@ const Inicio = () => {
               </Link>
             </aside>
           </div>
-          <h2>Pedidos pendientes</h2>
-          <hr />
-          <Row>
-            {pedidosPendientes.map((pedido) => (
-              <CardPedido
-                key={pedido._id}
-                pedido={pedido}
-                setPedidos={setPedidosPendientes}
-              ></CardPedido>
-            ))}
-          </Row>
-          <h2>Pedidos en elaboracion</h2>
-          <hr />
-          <Row>
-            {pedidosElaboracion.map((pedido) => (
-              <CardPedido
-                key={pedido._id}
-                pedido={pedido}
-                setPedidos={setPedidosElaboracion}
-              ></CardPedido>
-            ))}
-          </Row>
-          <h2>Pedidos listos para retirar</h2>
-          <hr />
-          <Row>
-            {pedidosListos.map((pedido) => (
-              <CardPedido
-                key={pedido._id}
-                pedido={pedido}
-                setPedidos={setPedidosListos}
-              ></CardPedido>
-            ))}
-          </Row>
-          <h2>Pedidos cancelados</h2>
-          <hr />
-          <Row>
-            {pedidosCancelados.map((pedido) => (
-              <CardPedido
-                key={pedido._id}
-                pedido={pedido}
-                setPedidos={setPedidosCancelados}
-              ></CardPedido>
-            ))}
-          </Row>
+          <Card className="my-4">
+            <Card.Header>
+              <h2>Pedidos pendientes</h2>
+            </Card.Header>
+            <Card.Body>
+              {pedidosPendientes.length === 0 ? (
+                <h2 className="display-6 text-center">
+                  No hay pedidos en pendientes por el momento...
+                </h2>
+              ) : (
+                <>
+                  <Row>
+                    {pedidosPendientes.map((pedido) => (
+                      <CardPedido
+                        key={pedido._id}
+                        pedido={pedido}
+                        setPedidos={setPedidosPendientes}
+                      ></CardPedido>
+                    ))}
+                  </Row>
+                </>
+              )}
+            </Card.Body>
+          </Card>
+          <Card className="my-4">
+            <Card.Header>
+              <h2>Pedidos en elaboracion</h2>
+            </Card.Header>
+            <Card.Body>
+              {pedidosElaboracion.length === 0 ? (
+                <h2 className="display-6 text-center">
+                  No hay pedidos en elaboracion por el momento...
+                </h2>
+              ) : (
+                <>
+                  <Row>
+                    {pedidosElaboracion.map((pedido) => (
+                      <CardPedido
+                        key={pedido._id}
+                        pedido={pedido}
+                        setPedidos={setPedidosElaboracion}
+                      ></CardPedido>
+                    ))}
+                  </Row>
+                </>
+              )}
+            </Card.Body>
+          </Card>
+          <Card className="my-4">
+            <Card.Header>
+              <h2>Pedidos listos para retirar</h2>
+            </Card.Header>
+            <Card.Body>
+              {pedidosListos.length === 0 ? (
+                <h2 className="display-6 text-center">
+                  No hay pedidos listos para reitrar por el momento...
+                </h2>
+              ) : (
+                <>
+                  <Row>
+                    {pedidosListos.map((pedido) => (
+                      <CardPedido
+                        key={pedido._id}
+                        pedido={pedido}
+                        setPedidos={setPedidosListos}
+                      ></CardPedido>
+                    ))}
+                  </Row>
+                </>
+              )}
+            </Card.Body>
+          </Card>
+          <Card className="my-4">
+            <Card.Header>
+              <h2>Pedidos cancelados</h2>
+            </Card.Header>
+            <Card.Body>
+              {pedidosCancelados.length === 0 ? (
+                <h2 className="display-6 text-center">
+                  No hay pedidos cancelados por el momento...
+                </h2>
+              ) : (
+                <>
+                  <Row>
+                    {pedidosCancelados.map((pedido) => (
+                      <CardPedido
+                        key={pedido._id}
+                        pedido={pedido}
+                        setPedidos={setPedidosCancelados}
+                      ></CardPedido>
+                    ))}
+                  </Row>
+                </>
+              )}
+            </Card.Body>
+          </Card>
         </section>
       </Container>
     </div>
