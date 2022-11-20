@@ -1,5 +1,6 @@
 import { Col, Card, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "../../card.css"
 
 const CardProducto = ({ producto }) => {
   return (

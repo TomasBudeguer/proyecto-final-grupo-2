@@ -77,7 +77,7 @@ const Inicio = () => {
     );
 
   return (
-    <div className="mainSection">
+    <div className="mainSection backgroundGral">
       <Container>
         <h1 className="display-4 text-center">Bienvenidos!</h1>
         <hr />

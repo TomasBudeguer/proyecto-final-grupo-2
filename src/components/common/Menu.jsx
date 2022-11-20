@@ -19,7 +19,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav.Link as={Link} to="/" className="ms-auto">
-            <img src="https://play.hbomax.com/40f1ec3e7380accdae648d90d4366e8f.png" alt="hbo" />
+            <img src="https://thekitchen.io/wp-content/uploads/2020/11/thekitchen_logo.png" alt="hbo" />
             {/* <i className="bi bi-geo-alt-fill fs-2"></i> */}
           </Nav.Link>
           <Nav className="ms-auto">
@@ -66,7 +66,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 <i className="bi bi-lock-fill"></i> {usuarioLogueado.nombreUsuario}
                 </Nav.Link>
                 <Button variant="dark" onClick={logout}>
-                  Logout
+                  Desconectarse
                 </Button>
               </>
             ) : (
@@ -77,7 +77,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                     <i className="bi bi-person-circle"></i> {usuarioLogueado.nombreUsuario}
                     </Nav.Link>
                     <Button variant="dark" onClick={logout}>
-                      Logout
+                      Desconectarse
                     </Button>
                   </>
                 ) : (
