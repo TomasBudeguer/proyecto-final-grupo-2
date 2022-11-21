@@ -14,14 +14,15 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          Restaurant
+          <img
+            src="https://thekitchen.io/wp-content/uploads/2020/11/thekitchen_logo.png"
+            height="40px"
+            className="w-100"
+            alt="the kitchen"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav.Link as={Link} to="/" className="ms-auto">
-            <img src="https://play.hbomax.com/40f1ec3e7380accdae648d90d4366e8f.png" alt="hbo" />
-            {/* <i className="bi bi-geo-alt-fill fs-2"></i> */}
-          </Nav.Link>
           <Nav className="ms-auto">
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/productos-salados">
@@ -63,10 +64,11 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                   Administrador
                 </Nav.Link>
                 <Nav.Link as={Link} to="/perfil">
-                <i className="bi bi-lock-fill"></i> {usuarioLogueado.nombreUsuario}
+                  <i className="bi bi-lock-fill"></i>{" "}
+                  {usuarioLogueado.nombreUsuario}
                 </Nav.Link>
                 <Button variant="dark" onClick={logout}>
-                  Logout
+                  Desconectarse
                 </Button>
               </>
             ) : (
@@ -74,10 +76,11 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 {usuarioLogueado.email ? (
                   <>
                     <Nav.Link as={Link} to="/perfil">
-                    <i className="bi bi-person-circle"></i> {usuarioLogueado.nombreUsuario}
+                      <i className="bi bi-person-circle"></i>{" "}
+                      {usuarioLogueado.nombreUsuario}
                     </Nav.Link>
                     <Button variant="dark" onClick={logout}>
-                      Logout
+                      Desconectarse
                     </Button>
                   </>
                 ) : (

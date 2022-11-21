@@ -22,6 +22,7 @@ import { useState } from "react";
 import Perfil from "./components/views/usuario/Perfil";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
+import AboutUs from "./components/views/AboutUs";
 
 function App() {
   const usuario = JSON.parse(localStorage.getItem("tokenUsuario")) || {};
@@ -104,6 +105,7 @@ function App() {
         <Route exact path="/registro" element={<Registro></Registro>}></Route>
         <Route exact path="/menu" element={<Menu></Menu>}></Route>
         <Route exact path="/footer" element={<Footer></Footer>}></Route>
+        <Route exact path="/AboutUs" element={<AboutUs></AboutUs>}></Route>
         <Route path="/administrar/*" element={<RutasProtegidas>
           <RutasAdmin></RutasAdmin>
         </RutasProtegidas>}></Route>
