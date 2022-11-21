@@ -77,14 +77,13 @@ const Inicio = () => {
     );
 
   return (
-    <div className="mainSection">
+    <div className="mainSection backgroundGral">
       <Container>
-        <h1 className="display-4 text-center">Bienvenidos!</h1>
         <hr />
         <div>
           <Row className="justify-content-center">
             <Col sm={12} md={12} lg={12}>
-              <h2 className="text-center">Nuestros productos disponibles</h2>
+              <h2 className="text-center">Busca entre nuestros productos</h2>
             </Col>
             <Col sm={12} md={12} lg={5} className="mb-3">
               <Card>
@@ -92,7 +91,7 @@ const Inicio = () => {
                   <Form onSubmit={handleSubmit(onSubmit)}>
                     <Row>
                       <Col sm={10} md={8} lg={8}>
-                        <Form.Group controlId="formBasicNombreProducto">
+                        <Form.Group controlId="formBasicNombreProducto" className="my-2">
                           <Form.Control
                             type="text"
                             placeholder="Nombre del producto"
@@ -120,7 +119,7 @@ const Inicio = () => {
                           <Button
                             variant="primary"
                             type="submit"
-                            className="me-2"
+                            className="my-2"
                           >
                             Buscar
                           </Button>
