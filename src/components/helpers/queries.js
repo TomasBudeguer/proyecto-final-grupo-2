@@ -1,7 +1,9 @@
  //const URL = "http://localhost:3004/productos"; //json-server
-const URL = "http://localhost:4000/apirestaurant/prod/productos" //BD-LOCAL
- //const URLpedidos = "http://localhost:3004/pedidos"; //json-server
-const URLpedidos = "http://localhost:4000/apirestaurant/ped/pedidos"; //json-server
+// const URL = "http://localhost:4000/apirestaurant/prod/productos" //BD-LOCAL
+//const URLpedidos = "http://localhost:3004/pedidos"; //json-server
+// const URLpedidos = "http://localhost:4000/apirestaurant/ped/pedidos"; //BD-LOCAL
+const URL = process.env.REACT_APP_API_REST_PRODUCTOS
+const URLpedidos = process.env.REACT_APP_API_REST_PEDIDOS
 
 // PRODUCTOS
 

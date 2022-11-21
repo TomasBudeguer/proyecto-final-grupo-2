@@ -1,4 +1,5 @@
-const URLusuario = "http://localhost:4000/apirestaurant/user";
+// const URLusuario = "http://localhost:4000/apirestaurant/user"; //bd local
+const URLusuario = process.env.REACT_APP_API_REST_USUARIOS; 
 
 
 //Usuarios
