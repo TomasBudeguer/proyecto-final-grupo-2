@@ -1,0 +1,31 @@
+.imagenPrimos {
+    height: 600px;
+    
+}
+.textoJustificado {
+    text-align: justify
+}
+.textoCentrado {
+    text-align: center
+}
+
+@media all and (max-width: 575.99px) {
+       
+        
+    
+    .mediumDevice {
+        display:flex;
+        flex-direction: column;;
+        width: 100%;
+    }
+  }
+  
+  @media all and (min-width: 576px) and (max-width: 768px) {
+    .mediumDevice {
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+    }
+        
+    }
+  
