@@ -25,6 +25,7 @@ const Administrador = () => {
   }, []);
 
   return (
+    <div className="backgroundGral">
     <Container className="my-5 mainSection">
       <div>
         <div className="d-flex justify-content-between align-items-center">
@@ -32,14 +33,14 @@ const Administrador = () => {
             <h2 className="display-4">Productos disponibles</h2>
           </aside>
           <aside>
-            <Link className="btn btn-primary" to="/administrar/crear-producto">
+            <Link className="btn btn-warning" to="/administrar/crear-producto">
               Agregar producto
             </Link>
           </aside>
         </div>
         <hr />
-        <Table striped bordered hover responsive>
-          <thead className="bg-light border-dark">
+        <Table bordered hover responsive>
+          <thead className="bg-warning border-dark">
             <tr>
               <th>Cod</th>
               <th>Producto</th>
@@ -50,7 +51,7 @@ const Administrador = () => {
               <th>Opciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-light border-dark">
             {productos.map((producto) => (
               <ItemProducto
                 key={producto._id}
@@ -65,8 +66,8 @@ const Administrador = () => {
       <div>
         <h2 className="display-4">Pedidos</h2>
         <hr />
-        <Table striped bordered hover responsive>
-          <thead className="bg-light border-dark">
+        <Table bordered hover responsive>
+          <thead className="bg-warning border-dark">
             <tr>
               <th>Cod</th>
               <th>Usuario</th>
@@ -75,7 +76,7 @@ const Administrador = () => {
               <th>Opciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-light border-dark">
             {pedidos.map((pedido) => (
               <ItemPedido
                 key={pedido._id}
@@ -93,14 +94,14 @@ const Administrador = () => {
             <h2 className="display-4">Usuarios registrados</h2>
           </aside>
           <aside>
-            <Link className="btn btn-primary" to="/registro">
+            <Link className="btn btn-warning" to="/registro">
               Agregar usuario
             </Link>
           </aside>
         </div>
         <hr />
-        <Table striped bordered hover responsive>
-          <thead className="bg-light border-dark">
+        <Table  bordered hover responsive>
+          <thead className="bg-warning border-dark">
             <tr>
               <th>Cod</th>
               <th>Nombre de usuario</th>
@@ -109,7 +110,7 @@ const Administrador = () => {
               <th>Opciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-light border-dark">
           {usuarios.map((usuario) => (
               <ItemUsuario
                 key={usuario._id}
@@ -121,6 +122,7 @@ const Administrador = () => {
         </Table>
       </div>
     </Container>
+    </div>
   );
 };
 
