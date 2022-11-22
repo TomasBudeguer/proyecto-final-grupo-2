@@ -19,15 +19,15 @@ const CrearPedido = ({ usuarioLogueado }) => {
   const [productos, setProductos] = useState([]);
 
   const [menuPedido, setMenuPedido] = useState([]);
-  const [menuPrecio, setMenuPrecio] = useState([]);
+  // const [menuPrecio, setMenuPrecio] = useState([]);
   const [suma, setSuma] = useState("");
 
   const agregarMenu = (producto) => {
     const prodNuevo = {
       nombreProducto: producto.nombreProducto,
-      precio: producto.precio
-    }
-     setMenuPedido([...menuPedido, prodNuevo]);
+      precio: producto.precio,
+    };
+    setMenuPedido([...menuPedido, prodNuevo]);
     // setMenuPedido([...menuPedido, ` ${producto.nombreProducto} $${producto.precio}`]);
     // setMenuPrecio([...menuPrecio, producto.precio]);
   };
@@ -41,7 +41,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
     });
-    const pedidoFinal = menuPedido.map((producto)=> producto.nombreProducto)
+    const pedidoFinal = menuPedido.map((producto) => producto.nombreProducto);
     setValue("pedido", pedidoFinal);
     const total = menuPedido
       .map((producto) => Number(producto.precio))
@@ -84,9 +84,10 @@ const CrearPedido = ({ usuarioLogueado }) => {
   };
 
   return (
-    <Container className="my-1 mainSection">
+    <div className="backgroundGral mainSection">
+    <Container className="mt-2 mb-5">
       <div className="mb-5">
-        <h3 className="display-4 text-center mb-3">Menu disponible:</h3>
+        <h3 className="display-4 text-center mb-3">Menu disponible</h3>
         <Row>
           {productos.map((producto) => (
             <Col sm={12} md={3} lg={2} key={producto._id}>
@@ -125,20 +126,30 @@ const CrearPedido = ({ usuarioLogueado }) => {
           ))}
         </Row> */}
         </Row>
-        {menuPedido.length === 0 ? "" :<><Card>
-          <Card.Header>
-            <h3>Productos seleccionados</h3>
-          </Card.Header>
-          <Card.Body>
-            <ListaPedido
-              menuPedido={menuPedido}
-              borrarItem={borrarItem}
-            ></ListaPedido>
-          </Card.Body>
-          <Card.Footer>{suma === 0 ? "" : <h3>Total: ${suma}</h3>}
-          </Card.Footer>
-        </Card>
-        <h4 className="text-center display-5"><i className="bi bi-arrow-down fs-2">Confirmar su pedido</i><i className="bi bi-arrow-down fs-2"></i></h4></>}
+        {menuPedido.length === 0 ? (
+          ""
+        ) : (
+          <>
+            <Card>
+              <Card.Header>
+                <h3>Productos seleccionados</h3>
+              </Card.Header>
+              <Card.Body>
+                <ListaPedido
+                  menuPedido={menuPedido}
+                  borrarItem={borrarItem}
+                ></ListaPedido>
+              </Card.Body>
+              <Card.Footer>
+                {suma === 0 ? "" : <h3>Total: ${suma}</h3>}
+              </Card.Footer>
+            </Card>
+            <h4 className="text-center display-5">
+              <i className="bi bi-arrow-down fs-2">Confirmar su pedido</i>
+              <i className="bi bi-arrow-down fs-2"></i>
+            </h4>
+          </>
+        )}
         <hr />
       </div>
       <Card>
@@ -240,6 +251,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
         </Card.Body>
       </Card>
     </Container>
+    </div>
   );
 };
 
