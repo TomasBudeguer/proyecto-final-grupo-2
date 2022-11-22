@@ -5,7 +5,9 @@ El alcance del mismo se basa en un restaurant de modalidad "take away" donde en 
 También se insistió en la idea de un usuario "administrador" de la web para poder crear productor, editarlos, así como también poder supervisar los usuarios registrados/clientes.
 
 ## Accede a la demo del proyecto en el siguiente link:
-https://proyecto-kitchen-grupo-2.netlify.app/
+1. https://proyecto-kitchen-grupo-2.netlify.app/
+1. https://vercel.com/tomasbudeguer/backend-proyecto-final-grupo-2/6GSPnNs1RhdBE8Nqs1ytrbTBoucK
+1. https://backend-proyecto-final-grupo-2.vercel.app/
 
 ## Librerias utilizadas
 Frontend:
@@ -28,8 +30,8 @@ Backend:
 - morgan v1.10.0
 
 ## Recursos Utilizados
-https://paletasdecolores.com/
-https://images.getbento.com/
+1. https://paletasdecolores.com/
+1. https://images.getbento.com/
 
 ## Autores
 - Jose Luis Gomez Marigliano
