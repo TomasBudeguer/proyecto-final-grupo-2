@@ -84,9 +84,10 @@ const CrearPedido = ({ usuarioLogueado }) => {
   };
 
   return (
-    <Container className="my-1 mainSection">
+    <div className="backgroundGral mainSection">
+    <Container className="mt-2 mb-5">
       <div className="mb-5">
-        <h3 className="display-4 text-center mb-3">Menu disponible:</h3>
+        <h3 className="display-4 text-center mb-3">Menu disponible</h3>
         <Row>
           {productos.map((producto) => (
             <Col sm={12} md={3} lg={2} key={producto._id}>
@@ -250,6 +251,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
         </Card.Body>
       </Card>
     </Container>
+    </div>
   );
 };
 

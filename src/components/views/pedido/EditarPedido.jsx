@@ -60,7 +60,8 @@ const EditarPedido = () => {
   };
 
   return (
-    <Container className="my-5 mainSection">
+    <div className="backgroundGral mainSection">
+    <Container className="my-4">
       <h2 className="display-4">Editar pedido</h2>
       <hr />
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -147,6 +148,7 @@ const EditarPedido = () => {
         </Button>
       </Form>
     </Container>
+    </div>
   );
 };
 
