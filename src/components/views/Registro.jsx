@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { crearUsuarioAPI } from "../helpers/queriesUsuarios";
+import emailjs from "@emailjs/browser";
+
 
 const Registro = () => {
   const navegacion = useNavigate();
@@ -21,6 +23,25 @@ const Registro = () => {
           "success"
         );
         navegacion("/login");
+
+        let templateParams = {
+          from_name: "Kitchen",
+          user_name: data.nombreUsuario,
+          destinatario: data.email,
+          message:
+            "Gracias por registrarte en nuestra pagina. Que disfrutes de nuestros servicion!",
+        };
+
+        emailjs
+          .send("service_78dnuyc", "template_lxfg9cl", templateParams,"l8tte2g0gHI0Mxq7c")
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response.status, response.text);
+            },
+            function (error) {
+              console.log("FAILED...", error);
+            }
+          );
       } else {
         Swal.fire("Ocurrio un error", "Vuelva a intentarlo mas tarde", "error");
       }
