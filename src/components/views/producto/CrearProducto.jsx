@@ -39,8 +39,9 @@ const CrearProducto = () => {
   };
 
   return (
-    <Container className="my-5 mainSection">
-      <h2 className="display-4">Nuevo Producto</h2>
+    <div className="backgroundGral mainSection">
+    <Container>
+      <h2 className="display-4 mt-4">Nuevo Producto</h2>
       <hr />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Row>
@@ -161,6 +162,7 @@ const CrearProducto = () => {
         </Button>
       </Form>
     </Container>
+    </div>
   );
 };
 
