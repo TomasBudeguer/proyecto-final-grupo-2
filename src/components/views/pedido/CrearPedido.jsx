@@ -138,7 +138,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
           <Card.Footer>{suma === 0 ? "" : <h3>Total: ${suma}</h3>}
           </Card.Footer>
         </Card>
-        <h4 className="text-center display-5"><i className="bi bi-arrow-down fs-2">Confirmer su pedido</i><i className="bi bi-arrow-down fs-2"></i></h4></>}
+        <h4 className="text-center display-5"><i className="bi bi-arrow-down fs-2">Confirmar su pedido</i><i className="bi bi-arrow-down fs-2"></i></h4></>}
         <hr />
       </div>
       <Card>
@@ -173,7 +173,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
               <Form.Label>Pedido*</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Presione el boton ''Agrgar al pedido'' "
+                placeholder="Presione el boton ''Agregar al pedido'' "
                 as="textarea"
                 disabled
                 style={{ height: "100px" }}
