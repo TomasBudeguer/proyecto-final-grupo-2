@@ -2,8 +2,8 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import {
-  borrarUsuarioAPI,
-  consultarUsuario,
+
+  consultarUsuario, borrarUsuarioAPI
 } from "../../helpers/queriesUsuarios";
 
 const ItemUsuario = ({ usuario, setUsuarios }) => {
