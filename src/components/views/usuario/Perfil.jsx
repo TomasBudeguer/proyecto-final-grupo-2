@@ -46,7 +46,7 @@ const Perfil = ({ usuarioLogueado }) => {
             </Row></>)}
           </Card.Body>
         </Card>
-        <div className="d-flex flex-column align-items-center mt-3">
+        <div className="d-flex flex-column align-items-center my-4">
             <aside>
               <h2>¿Queres realizar tu pedido?</h2>
             </aside>
