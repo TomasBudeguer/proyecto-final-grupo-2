@@ -28,8 +28,9 @@ const DetallePedido = () => {
     });
   }, []);
   return (
-    <Container className="my-4 mainSection">
-      <h5 className="text-center display-5 mb-3">Pedido de: {nombreUsuario}</h5>
+    <div className="backgroundGral mainSection">
+    <Container>
+      <h5 className="text-center display-5 my-3">Pedido de: {nombreUsuario}</h5>
       <Card>
         <Card.Header>
           <Card.Title className=" fs-4">Pedido a nombre de: {nombreUsuario}</Card.Title>
@@ -43,6 +44,7 @@ const DetallePedido = () => {
         </Card.Footer>
       </Card>
     </Container>
+    </div>
   );
 };
 

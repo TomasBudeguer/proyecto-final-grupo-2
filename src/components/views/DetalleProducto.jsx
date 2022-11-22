@@ -32,7 +32,8 @@ const DetalleProducto = ({ producto }) => {
   }, []);
 
   return (
-    <Container className="my-4 mainSection">
+    <div className="backgroundGral mainSection">
+    <Container>
       <h5 className="text-center display-5 mb-3">{nombreProducto}</h5>
       <Card>
         <Card.Body>
@@ -55,6 +56,7 @@ const DetalleProducto = ({ producto }) => {
         </Card.Body>
       </Card>
     </Container>
+    </div>
   );
 };
 

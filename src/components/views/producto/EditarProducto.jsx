@@ -62,8 +62,9 @@ const EditarProducto = () => {
   };
 
   return (
-    <Container className="my-5 mainSection">
-      <h2 className="display-4 text-center">Editar Producto</h2>
+    <div className="backgroundGral mainSection">
+    <Container>
+      <h2 className="display-4 text-center mt-4">Editar Producto</h2>
       <hr />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Row>
@@ -184,6 +185,7 @@ const EditarProducto = () => {
         </Button>
       </Form>
     </Container>
+    </div>
   );
 };
 

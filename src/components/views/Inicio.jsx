@@ -119,7 +119,7 @@ const Inicio = () => {
                           <Button
                             variant="primary"
                             type="submit"
-                            className="my-2"
+                            className="my-2 me-2"
                           >
                             Buscar
                           </Button>
