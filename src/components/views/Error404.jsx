@@ -1,7 +1,14 @@
+import { Container } from "react-bootstrap"
 const Error404 = () => {
     return (
-        <div className="mainSection"> 
-            <h2 className="display-1 text-center">ERROR 404</h2>
+        <div className="backgroundGral mainSection">
+            <Container className="mainSection"> 
+            <img
+              src="https://i.ibb.co/Kwwzny3/error-4042.png"
+              className="w-100 imagenPrimos my-4"
+              alt="fotoprimos"
+            ></img>
+        </Container>
         </div>
     );
 };

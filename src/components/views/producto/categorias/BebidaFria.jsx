@@ -11,7 +11,8 @@ const BebidaFria = () => {
         })
     },[])
   return (
-    <Container className="mainSection">
+    <div className="backgroundGral mainSection">
+    <Container>
       <h2>Bebidas Frias</h2>
       <hr />
       <Row>
@@ -24,6 +25,7 @@ const BebidaFria = () => {
             ))} 
       </Row>
     </Container>
+    </div>
   );
 };
 

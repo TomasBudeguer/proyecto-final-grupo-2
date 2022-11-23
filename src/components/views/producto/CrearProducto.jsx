@@ -127,7 +127,7 @@ const CrearProducto = () => {
                     message: "Debe ingresar como minimo 10 caracteres",
                   },
                   maxLength: {
-                    value: 150,
+                    value: 500,
                     message: "Debe ingresar como maximo 500 caracteres",
                   },
                 })}
