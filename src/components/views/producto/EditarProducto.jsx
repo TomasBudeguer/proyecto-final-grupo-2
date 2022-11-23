@@ -126,7 +126,7 @@ const EditarProducto = () => {
                 <option value="Bebida caliente">Bebida caliente</option>
                 <option value="Bebida fria">Bebida fria</option>
                 <option value="Dulce">Dulce</option>
-                <option value="Ensaldas">Ensaladas</option>
+                <option value="Ensaladas">Ensaladas</option>
                 <option value="Postres">Postres</option>
                 <option value="Salado">Salado</option>
                 <option value="Tortas">Tortas</option>
@@ -150,7 +150,7 @@ const EditarProducto = () => {
                     message: "Debe ingresar como minimo 10 caracteres",
                   },
                   maxLength: {
-                    value: 150,
+                    value: 500,
                     message: "Debe ingresar como maximo 500 caracteres",
                   },
                 })}
