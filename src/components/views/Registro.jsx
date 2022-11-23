@@ -29,7 +29,7 @@ const Registro = () => {
           user_name: data.nombreUsuario,
           destinatario: data.email,
           message:
-            "Gracias por registrarte en nuestra pagina. Que disfrutes de nuestros servicion!",
+            "Gracias por registrarte en nuestra pagina. Que disfrutes de nuestros servicios!",
         };
 
         emailjs
