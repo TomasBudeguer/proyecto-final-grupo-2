@@ -112,8 +112,7 @@ export const userAdmin = {
       return {
         status: respuesta.status,
         mensaje: datos.mensaje,
-        usuario: datos.usuario,
-        token: datos.token,
+        nombreUsuario: datos.nombreUsuario,
         uid: datos.uid,
       };
     } catch (error) {
