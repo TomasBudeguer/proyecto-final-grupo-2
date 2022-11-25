@@ -11,13 +11,13 @@ const CardPedido = ({pedido, setPedido}) => {
             <Card.Body>
               <Card.Subtitle className="fs-5">
                 Estado:
-                <Badge bg="success" className="ms-4">
+                <Badge bg="dark" className="ms-4 text-warning">
                 {pedido.estado}
                 </Badge>
               </Card.Subtitle>
             </Card.Body>
             <Card.Footer>
-              <Link className="btn btn-success" to={`/detalle-pedido/${pedido._id}`}>
+              <Link className="btn btn-warning" to={`/detalle-pedido/${pedido._id}`}>
                 Ver detalle del pedido
               </Link>
             </Card.Footer>

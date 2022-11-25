@@ -103,10 +103,10 @@ const Registro = () => {
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Contraseña</Form.Label>
                     <Form.Control
                       type="password"
-                      placeholder="Password"
+                      placeholder="Contraseña"
                       {...register("password", {
                         required: "El password es obligatorio",
                         minLength: {
@@ -123,8 +123,8 @@ const Registro = () => {
                       {errors.password?.message}
                     </Form.Text>
                   </Form.Group>
-                  <Button variant="primary" type="submit">
-                    Crear
+                  <Button variant="warning" type="submit">
+                    Crear cuenta
                   </Button>
                 </Form>
               </Card.Body>

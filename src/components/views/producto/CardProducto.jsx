@@ -14,12 +14,12 @@ const CardProducto = ({ producto }) => {
               <Card.Subtitle>Precio: ${producto.precio}</Card.Subtitle>
             </aside>
             <aside>
-              <Badge bg="success">{producto.categoria}</Badge>
+              <Badge bg="warning" className="text-dark">{producto.categoria}</Badge>
             </aside>
           </div>
           <Card.Text className="line-clamp">Descripcion: {producto.descripcion} </Card.Text>
           <hr />
-          <Link className="btn btn-success" to={`/detalle-producto/${producto._id}`}>
+          <Link className="btn btn-warning" to={`/detalle-producto/${producto._id}`}>
             Ver detalle
           </Link>
         </Card.Body>

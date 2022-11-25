@@ -143,7 +143,7 @@ const EditarPedido = () => {
             {errors.estado?.message}
           </Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="warning" type="submit">
           Modificar pedido
         </Button>
       </Form>

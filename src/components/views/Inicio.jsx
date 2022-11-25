@@ -117,7 +117,7 @@ const Inicio = () => {
                       <Col sm={2} md={4} lg={4}>
                         <div className="text-center">
                           <Button
-                            variant="primary"
+                            variant="warning"
                             type="submit"
                             className="my-2 me-2"
                           >
@@ -159,7 +159,7 @@ const Inicio = () => {
               <h2>¿Queres realizar tu pedido?</h2>
             </aside>
             <aside>
-              <Link className="btn btn-success" to={`/crear-pedido`}>
+              <Link className="btn btn-warning border border-dark" to={`/crear-pedido`}>
                 Realizar pedido
               </Link>
             </aside>

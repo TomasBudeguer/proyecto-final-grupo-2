@@ -21,7 +21,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             alt="the kitchen"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-warning"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavDropdown title="Categorias" id="basic-nav-dropdown">

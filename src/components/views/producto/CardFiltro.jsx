@@ -15,13 +15,13 @@ const CardFiltro = ({ producto }) => {
               <Card.Subtitle>Precio: ${producto.precio}</Card.Subtitle>
             </aside>
             <aside>
-              <Badge bg="success">{producto.categoria}</Badge>
+              <Badge bg="warning" className="text-dark">{producto.categoria}</Badge>
             </aside>
           </div>
-          <Card.Text>Descripcion: {producto.descripcion} </Card.Text>
+          <Card.Text className="line-clamp">Descripcion: {producto.descripcion} </Card.Text>
           <hr />
           <Link
-            className="btn btn-success"
+            className="btn btn-warning"
             to={`/detalle-producto/${producto._id}`}
           >
             Ver detalle
