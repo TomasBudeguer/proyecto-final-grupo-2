@@ -45,7 +45,7 @@ const DetalleProducto = ({ producto }) => {
               <div className="d-flex justify-content-between">
                 <Card.Title className="mt-1 fs-4">{nombreProducto}</Card.Title>
                 <aside>
-                  <Badge bg="success">{categoria}</Badge>
+                  <Badge bg="warning" className="text-dark">{categoria}</Badge>
                 </aside>
               </div>
               <hr />

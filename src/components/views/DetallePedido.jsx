@@ -36,11 +36,11 @@ const DetallePedido = () => {
           <Card.Title className=" fs-4">Pedido a nombre de: {nombreUsuario}</Card.Title>
         </Card.Header>
         <Card.Body>
-          <Badge bg="success fs-6 mb-2 ">{estado}</Badge>
+          <Badge bg="dark" className="fs-6 mb-2 text-warning">{estado}</Badge>
           <Card.Text>Pedido: <br /> {`${pedido}`}</Card.Text>
         </Card.Body>
         <Card.Footer>
-          <Card.Text>Total: ${total}</Card.Text>
+          <Card.Subtitle className="fs-4">Total: ${total}</Card.Subtitle>
         </Card.Footer>
       </Card>
     </Container>

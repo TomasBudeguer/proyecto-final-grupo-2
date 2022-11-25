@@ -48,7 +48,7 @@ const ItemPedido = ({ pedido, setPedidos }) => {
       </td>
       <td>{pedido.estado}</td>
       <td>
-        <Link className="btn btn-success me-2 mb-1" to={`/administrar/editar-pedido/${pedido._id}`}>
+        <Link className="btn btn-dark text-warning me-2 mb-1" to={`/administrar/editar-pedido/${pedido._id}`}>
           Editar
         </Link>
         <Button variant="danger" className="mb-1" onClick={borrarPedido}>

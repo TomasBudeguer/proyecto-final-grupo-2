@@ -101,11 +101,11 @@ const CrearPedido = ({ usuarioLogueado }) => {
                     Precio: ${producto.precio}
                   </Card.Subtitle>
                   <aside className="text-center">
-                    <Badge bg="success"> {producto.categoria}</Badge>
+                    <Badge bg="warning" className="text-dark"> {producto.categoria}</Badge>
                   </aside>
                 </Card.Body>
                 <Card.Footer className="text-center">
-                  <Button
+                  <Button variant='success'
                     onClick={() => {
                       agregarMenu(producto);
                     }}
@@ -244,7 +244,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
                 {errors.estado?.message}
               </Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="warning" type="submit">
               Realizar pedido
             </Button>
           </Form>

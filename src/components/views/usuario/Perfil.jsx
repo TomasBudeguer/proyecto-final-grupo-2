@@ -46,12 +46,13 @@ const Perfil = ({ usuarioLogueado }) => {
             </Row></>)}
           </Card.Body>
         </Card>
+        <hr />
         <div className="d-flex flex-column align-items-center my-4">
             <aside>
               <h2>¿Queres realizar tu pedido?</h2>
             </aside>
             <aside>
-              <Link className="btn btn-success" to={`/crear-pedido`}>
+              <Link className="btn btn-warning border border-dark" to={`/crear-pedido`}>
                 Realizar pedido
               </Link>
             </aside>
