@@ -33,7 +33,7 @@ const Administrador = () => {
             <h2 className="display-4">Productos disponibles</h2>
           </aside>
           <aside>
-            <Link className="btn btn-warning" to="/administrar/crear-producto">
+            <Link className="btn btn-success" to="/administrar/crear-producto">
               Agregar producto
             </Link>
           </aside>
@@ -94,7 +94,7 @@ const Administrador = () => {
             <h2 className="display-4">Usuarios registrados</h2>
           </aside>
           <aside>
-            <Link className="btn btn-warning" to="/registro">
+            <Link className="btn btn-success" to="/registro">
               Agregar usuario
             </Link>
           </aside>

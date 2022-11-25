@@ -61,7 +61,7 @@ const Login = ({ setUsuarioLogueado }) => {
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control
                       type="password"
-                      placeholder="Password"
+                      placeholder="Contraseña"
                       {...register("password", {
                         required: "El password es obligatorio",
                         minLength: {
@@ -83,8 +83,8 @@ const Login = ({ setUsuarioLogueado }) => {
                       ¿Todavia no tienes tu cuenta? Clickea aqui
                     </Link>
                   </div>
-                  <Button variant="primary" type="submit">
-                    Iniciar
+                  <Button variant="warning" type="submit">
+                    Ingresar
                   </Button>
                 </Form>
               </Card.Body>
