@@ -15,7 +15,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useForm } from "react-hook-form";
 import CardFiltro from "./producto/CardFiltro";
 
-const Inicio = () => {
+const Inicio = ({usuarioLogueado}) => {
   const [productos, setProductos] = useState([]);
   const [pedidosPendientes, setPedidosPendientes] = useState([]);
   const [pedidosElaboracion, setPedidosElaboracion] = useState([]);
@@ -39,6 +39,11 @@ const Inicio = () => {
     listaPedidosCanceladosAPI().then((respuesta) => {
       setPedidosCancelados(respuesta);
     });
+    if(usuarioLogueado){
+      console.log(usuarioLogueado)
+    }else{
+      console.log('no hay nada')
+    }
   }, []);
 
   const {

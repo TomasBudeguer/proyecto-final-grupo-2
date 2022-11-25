@@ -32,12 +32,17 @@ const CrearPedido = ({ usuarioLogueado }) => {
     // setMenuPrecio([...menuPrecio, producto.precio]);
   };
 
+  const navegacion = useNavigate();
+
   const borrarItem = (producto) => {
     let arregloModificado = menuPedido.filter((item) => item !== producto);
     setMenuPedido(arregloModificado);
   };
 
   useEffect(() => {
+    if(!localStorage.getItem("tokenUsuario")){
+      navegacion("/login");
+    }
     consultarAPI().then((respuesta) => {
       setProductos(respuesta);
     });
@@ -65,7 +70,6 @@ const CrearPedido = ({ usuarioLogueado }) => {
     },
   });
 
-  const navegacion = useNavigate();
 
   const onSubmit = (datos) => {
     crearPedidoAPI(datos).then((respuesta) => {
