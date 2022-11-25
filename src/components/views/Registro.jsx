@@ -114,8 +114,8 @@ const Registro = () => {
                           message: "Debe ingresar un mínimo de 8 caracteres",
                         },
                         maxLength: {
-                          value: 16,
-                          message: "Debe ingresar un máximo de 16 caracteres",
+                          value: 60,
+                          message: "Debe ingresar un máximo de 60 caracteres",
                         },
                       })}
                     />
