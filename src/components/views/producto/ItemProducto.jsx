@@ -16,14 +16,11 @@ const ItemProducto = ({ producto, setProductos }) => {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        // realizar la consulta a la API
         borrarProductoAPI(producto._id).then((respuesta) => {
           if (respuesta.status === 200) {
-            // actualizar el state producto o la tabla
             consultarAPI().then((respuesta) => {
               setProductos(respuesta);
             });
-
             Swal.fire(
               "Producto eliminado!",
               "El producto fue correctamnete eliminado.",
@@ -41,22 +38,31 @@ const ItemProducto = ({ producto, setProductos }) => {
     });
   };
 
-    return (
-        <tr>
+  return (
+    <tr>
       <td>{producto._id}</td>
       <td>{producto.nombreProducto}</td>
       <td>${producto.precio}</td>
-      <td><p className="cortarText">{producto.descripcion}</p></td>      
-      <td><p className="cortarText">{producto.imagen}</p></td>
+      <td>
+        <p className="cortarText">{producto.descripcion}</p>
+      </td>
+      <td>
+        <p className="cortarText">{producto.imagen}</p>
+      </td>
       <td>{producto.categoria}</td>
       <td>
-        <Link className="btn btn-dark text-warning me-2 mb-1" to={`/administrar/editar-producto/${producto._id}`}>Editar</Link>
+        <Link
+          className="btn btn-dark text-warning me-2 mb-1"
+          to={`/administrar/editar-producto/${producto._id}`}
+        >
+          Editar
+        </Link>
         <Button variant="danger" className="mb-1" onClick={borrarProducto}>
           Borrar
         </Button>
       </td>
     </tr>
-    );
+  );
 };
 
 export default ItemProducto;

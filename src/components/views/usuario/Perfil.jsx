@@ -33,30 +33,39 @@ const Perfil = ({ usuarioLogueado }) => {
             <h2 className="text-center">Historial de Pedidos</h2>
           </Card.Header>
           <Card.Body>
-            {pedidosPersonales.length === 0 ? (<h2 className="display-6 text-center">
-                  No hay pedidos cargados en su historial...
-                </h2>):(<><Row>
-              {pedidosPersonales.map((pedido) => (
-                <CardPedido
-                  key={pedido._id}
-                  pedido={pedido}
-                  setPedidos={setPedidosPersonales}
-                ></CardPedido>
-              ))}
-            </Row></>)}
+            {pedidosPersonales.length === 0 ? (
+              <h2 className="display-6 text-center">
+                No hay pedidos cargados en su historial...
+              </h2>
+            ) : (
+              <>
+                <Row>
+                  {pedidosPersonales.map((pedido) => (
+                    <CardPedido
+                      key={pedido._id}
+                      pedido={pedido}
+                      setPedidos={setPedidosPersonales}
+                    ></CardPedido>
+                  ))}
+                </Row>
+              </>
+            )}
           </Card.Body>
         </Card>
         <hr />
         <div className="d-flex flex-column align-items-center my-4">
-            <aside>
-              <h2>¿Queres realizar tu pedido?</h2>
-            </aside>
-            <aside>
-              <Link className="btn btn-warning border border-dark" to={`/crear-pedido`}>
-                Realizar pedido
-              </Link>
-            </aside>
-          </div>
+          <aside>
+            <h2>¿Queres realizar tu pedido?</h2>
+          </aside>
+          <aside>
+            <Link
+              className="btn btn-warning border border-dark"
+              to={`/crear-pedido`}
+            >
+              Realizar pedido
+            </Link>
+          </aside>
+        </div>
       </Container>
     </div>
   );

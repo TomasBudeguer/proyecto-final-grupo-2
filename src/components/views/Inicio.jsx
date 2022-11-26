@@ -91,7 +91,10 @@ const Inicio = () => {
                   <Form onSubmit={handleSubmit(onSubmit)}>
                     <Row>
                       <Col sm={10} md={8} lg={8}>
-                        <Form.Group controlId="formBasicNombreProducto" className="my-2">
+                        <Form.Group
+                          controlId="formBasicNombreProducto"
+                          className="my-2"
+                        >
                           <Form.Control
                             type="text"
                             placeholder="Nombre del producto"
@@ -159,7 +162,10 @@ const Inicio = () => {
               <h2>¿Queres realizar tu pedido?</h2>
             </aside>
             <aside>
-              <Link className="btn btn-warning border border-dark" to={`/crear-pedido`}>
+              <Link
+                className="btn btn-warning border border-dark"
+                to={`/crear-pedido`}
+              >
                 Realizar pedido
               </Link>
             </aside>

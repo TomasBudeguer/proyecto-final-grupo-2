@@ -15,16 +15,20 @@
   width: 300px;
 }
 
-.backgroundGral { background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgb(182, 182, 182) 67.4% ); }
-
+.backgroundGral {
+  background-image: linear-gradient(
+    174.2deg,
+    rgba(255, 244, 228, 1) 7.1%,
+    rgb(182, 182, 182) 67.4%
+  );
+}
 
 .shadowImg {
-box-shadow: 5px 10px 20px 1px rgba(91, 46, 46, 0.995) !important;
+  box-shadow: 5px 10px 20px 1px rgba(91, 46, 46, 0.995) !important;
 }
 
 .liFooter {
   list-style: none;
-  
 }
 
 .line-clamp {
@@ -34,8 +38,7 @@ box-shadow: 5px 10px 20px 1px rgba(91, 46, 46, 0.995) !important;
   overflow: hidden;
 }
 
-
-a{
+a {
   text-decoration: none;
   color: black;
 }
