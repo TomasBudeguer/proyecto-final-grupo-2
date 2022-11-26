@@ -4,27 +4,27 @@ import { listarProductosEnsaladasAPI } from "../../../helpers/queries";
 import CardProducto from "../CardProducto";
 
 const Ensaladas = () => {
-    const [ProdEnsaladas, setProdEnsaladas] = useState([])
-    useEffect(()=>{
-        listarProductosEnsaladasAPI().then((respuesta)=>{
-            setProdEnsaladas(respuesta)
-        })
-    },[])
+  const [ProdEnsaladas, setProdEnsaladas] = useState([]);
+  useEffect(() => {
+    listarProductosEnsaladasAPI().then((respuesta) => {
+      setProdEnsaladas(respuesta);
+    });
+  }, []);
   return (
     <div className="backgroundGral mainSection">
-    <Container>
-      <h2>Productos Ensaladas</h2>
-      <hr />
-      <Row>
-      {ProdEnsaladas.map((producto) => (
-              <CardProducto
-                key={producto._id}
-                producto={producto}
-                setProducto={setProdEnsaladas}
-              ></CardProducto>
-            ))} 
-      </Row>
-    </Container>
+      <Container>
+        <h2>Productos Ensaladas</h2>
+        <hr />
+        <Row>
+          {ProdEnsaladas.map((producto) => (
+            <CardProducto
+              key={producto._id}
+              producto={producto}
+              setProducto={setProdEnsaladas}
+            ></CardProducto>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };

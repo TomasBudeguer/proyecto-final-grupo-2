@@ -106,9 +106,14 @@ function App() {
         <Route exact path="/menu" element={<Menu></Menu>}></Route>
         <Route exact path="/footer" element={<Footer></Footer>}></Route>
         <Route exact path="/AboutUs" element={<AboutUs></AboutUs>}></Route>
-        <Route path="/administrar/*" element={<RutasProtegidas>
-          <RutasAdmin></RutasAdmin>
-        </RutasProtegidas>}></Route>
+        <Route
+          path="/administrar/*"
+          element={
+            <RutasProtegidas>
+              <RutasAdmin></RutasAdmin>
+            </RutasProtegidas>
+          }
+        ></Route>
         <Route exact path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>

@@ -21,7 +21,10 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             alt="the kitchen"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-warning"/>
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          className="bg-warning"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
@@ -95,25 +98,6 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 )}
               </>
             )}
-            {/* {usuarioLogueado.email ? (
-              <>
-                // <Nav.Link as={Link} to="/administrador">
-                //   Administrador
-                // </Nav.Link>
-                <Button variant="dark" onClick={logout}>
-                  Logout
-                </Button>
-              </>
-            ) : (
-              <>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
-                <Nav.Link as={Link} to="/registro">
-                  Registro
-                </Nav.Link>
-              </>
-            )} */}
           </Nav>
         </Navbar.Collapse>
       </Container>

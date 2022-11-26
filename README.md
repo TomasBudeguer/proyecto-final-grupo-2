@@ -6,7 +6,6 @@ También se insistió en la idea de un usuario "administrador" de la web para po
 
 ## Accede a la demo del proyecto en el siguiente link:
 1. https://proyecto-kitchen-grupo-2.netlify.app/
-1. https://vercel.com/tomasbudeguer/backend-proyecto-final-grupo-2/6GSPnNs1RhdBE8Nqs1ytrbTBoucK
 1. https://backend-proyecto-final-grupo-2.vercel.app/
 
 ## Librerias utilizadas

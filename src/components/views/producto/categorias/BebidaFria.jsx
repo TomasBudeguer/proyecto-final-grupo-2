@@ -4,27 +4,27 @@ import { listarProductosBebidasFriasAPI } from "../../../helpers/queries";
 import CardProducto from "../CardProducto";
 
 const BebidaFria = () => {
-    const [BebidasFrias, setBebidasFrias] = useState([])
-    useEffect(()=>{
-        listarProductosBebidasFriasAPI().then((respuesta)=>{
-            setBebidasFrias(respuesta)
-        })
-    },[])
+  const [BebidasFrias, setBebidasFrias] = useState([]);
+  useEffect(() => {
+    listarProductosBebidasFriasAPI().then((respuesta) => {
+      setBebidasFrias(respuesta);
+    });
+  }, []);
   return (
     <div className="backgroundGral mainSection">
-    <Container>
-      <h2>Bebidas Frias</h2>
-      <hr />
-      <Row>
-      {BebidasFrias.map((producto) => (
-              <CardProducto
-                key={producto._id}
-                producto={producto}
-                setProducto={setBebidasFrias}
-              ></CardProducto>
-            ))} 
-      </Row>
-    </Container>
+      <Container>
+        <h2>Bebidas Frias</h2>
+        <hr />
+        <Row>
+          {BebidasFrias.map((producto) => (
+            <CardProducto
+              key={producto._id}
+              producto={producto}
+              setProducto={setBebidasFrias}
+            ></CardProducto>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };
