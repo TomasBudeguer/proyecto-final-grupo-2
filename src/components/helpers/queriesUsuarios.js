@@ -95,7 +95,7 @@ export const obtenerUsuarioAPI = async (id) => {
 
 export const userAdmin = {
   email: "admin@resto.com",
-  password: "resto1234",
+  password: "$2a$10$d56z1hgodwcNT3QV9hKJBeQsOtrackD54BNcyF/QB6mMchSp4JUV6",
 };
 
   export const login = async (usuario) =>{

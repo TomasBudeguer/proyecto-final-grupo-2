@@ -18,6 +18,7 @@ const Login = ({ setUsuarioLogueado }) => {
         localStorage.setItem("tokenUsuario", JSON.stringify(respuesta));
         setUsuarioLogueado(respuesta);
         navigate("/");
+        console.log(respuesta)
       } else {
         Swal.fire("Error", "Nombre de usuario o password incorrecto", "error");
       }
