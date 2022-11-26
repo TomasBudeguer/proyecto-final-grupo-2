@@ -101,7 +101,7 @@ export const userAdmin = {
   export const login = async (usuario) =>{
     try {
       console.log(usuario);
-      const respuesta = await fetch(`${URLusuario}/nuevo`, {
+      const respuesta = await fetch(`${URLusuario}/usuario`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -114,6 +114,8 @@ export const userAdmin = {
         mensaje: datos.mensaje,
         nombreUsuario: datos.nombreUsuario,
         uid: datos.uid,
+        email: datos.email,
+        password: datos.password
       };
     } catch (error) {
       console.log("errores en el login");
