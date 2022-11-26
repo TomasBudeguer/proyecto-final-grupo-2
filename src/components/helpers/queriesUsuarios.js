@@ -101,7 +101,7 @@ export const userAdmin = {
   export const login = async (usuario) =>{
     try {
       console.log(usuario);
-      const respuesta = await fetch(URLusuario, {
+      const respuesta = await fetch(`${URLusuario}/nuevo`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
