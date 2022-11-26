@@ -18,7 +18,6 @@ const Login = ({ setUsuarioLogueado }) => {
         localStorage.setItem("tokenUsuario", JSON.stringify(respuesta));
         setUsuarioLogueado(respuesta);
         navigate("/");
-        console.log(respuesta)
       } else {
         Swal.fire("Error", "Nombre de usuario o password incorrecto", "error");
       }
@@ -30,7 +29,7 @@ const Login = ({ setUsuarioLogueado }) => {
       <Container>
         <Row className="justify-content-center">
           <Col sm={12} md={10} lg={7}>
-          <Card className="my-3">
+            <Card className="my-3">
               <Card.Header as="h5">Ingrese a su cuenta</Card.Header>
               <Card.Body>
                 <Form onSubmit={handleSubmit(onSubmit)}>
@@ -93,13 +92,12 @@ const Login = ({ setUsuarioLogueado }) => {
           </Col>
         </Row>
         <div className="text-center my-4">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT65KMx4k0jm3Qqszjo4hGzgBg4p5eShiHFjQ&usqp=CAU"
-              height=""
-              alt="the kitchen"
-            />
-          </div>
-           
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT65KMx4k0jm3Qqszjo4hGzgBg4p5eShiHFjQ&usqp=CAU"
+            height=""
+            alt="the kitchen"
+          />
+        </div>
       </Container>
     </div>
   );

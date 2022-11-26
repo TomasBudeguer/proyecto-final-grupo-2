@@ -29,21 +29,29 @@ const DetallePedido = () => {
   }, []);
   return (
     <div className="backgroundGral mainSection">
-    <Container>
-      <h5 className="text-center display-5 my-3">Pedido de: {nombreUsuario}</h5>
-      <Card>
-        <Card.Header>
-          <Card.Title className=" fs-4">Pedido a nombre de: {nombreUsuario}</Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <Badge bg="dark" className="fs-6 mb-2 text-warning">{estado}</Badge>
-          <Card.Text>Pedido: <br /> {`${pedido}`}</Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <Card.Subtitle className="fs-4">Total: ${total}</Card.Subtitle>
-        </Card.Footer>
-      </Card>
-    </Container>
+      <Container>
+        <h5 className="text-center display-5 my-3">
+          Pedido de: {nombreUsuario}
+        </h5>
+        <Card>
+          <Card.Header>
+            <Card.Title className=" fs-4">
+              Pedido a nombre de: {nombreUsuario}
+            </Card.Title>
+          </Card.Header>
+          <Card.Body>
+            <Badge bg="dark" className="fs-6 mb-2 text-warning">
+              {estado}
+            </Badge>
+            <Card.Text>
+              Pedido: <br /> {`${pedido}`}
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <Card.Subtitle className="fs-4">Total: ${total}</Card.Subtitle>
+          </Card.Footer>
+        </Card>
+      </Container>
     </div>
   );
 };

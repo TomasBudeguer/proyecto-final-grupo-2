@@ -1,9 +1,9 @@
- //const URL = "http://localhost:3004/productos"; //json-server
+//const URL = "http://localhost:3004/productos"; //json-server
 // const URL = "http://localhost:4000/apirestaurant/prod/productos" //BD-LOCAL
 //const URLpedidos = "http://localhost:3004/pedidos"; //json-server
 // const URLpedidos = "http://localhost:4000/apirestaurant/ped/pedidos"; //BD-LOCAL
-const URL = process.env.REACT_APP_API_REST_PRODUCTOS
-const URLpedidos = process.env.REACT_APP_API_REST_PEDIDOS
+const URL = process.env.REACT_APP_API_REST_PRODUCTOS;
+const URLpedidos = process.env.REACT_APP_API_REST_PEDIDOS;
 
 // PRODUCTOS
 
@@ -138,6 +138,7 @@ export const editarPedidoAPI = async (id, datosActualizados) => {
 };
 
 // pedidos pendiente
+
 export const listaPedidosPendientesAPI = async () => {
   try {
     const respuesta = await fetch(URLpedidos + "-pendientes");
@@ -149,6 +150,7 @@ export const listaPedidosPendientesAPI = async () => {
 };
 
 // pedidos en elaboracion
+
 export const listaPedidosElaboracionAPI = async () => {
   try {
     const respuesta = await fetch(URLpedidos + "-elaboracion");
@@ -160,6 +162,7 @@ export const listaPedidosElaboracionAPI = async () => {
 };
 
 // pedidos listos
+
 export const listaPedidosListosAPI = async () => {
   try {
     const respuesta = await fetch(URLpedidos + "-listos");
@@ -171,6 +174,7 @@ export const listaPedidosListosAPI = async () => {
 };
 
 // pedidos cancelados
+
 export const listaPedidosCanceladosAPI = async () => {
   try {
     const respuesta = await fetch(URLpedidos + "-cancelados");
@@ -182,6 +186,7 @@ export const listaPedidosCanceladosAPI = async () => {
 };
 
 // pedidos personales
+
 export const consultarPedidosPersonalesAPI = async (usuario) => {
   try {
     const respuesta = await fetch(URLpedidos + "-personales", {
@@ -191,7 +196,7 @@ export const consultarPedidosPersonalesAPI = async (usuario) => {
       },
       body: JSON.stringify(usuario),
     });
-    const pedidosPersonales = await respuesta.json()
+    const pedidosPersonales = await respuesta.json();
     return pedidosPersonales;
   } catch (error) {
     console.log(error);
@@ -199,6 +204,7 @@ export const consultarPedidosPersonalesAPI = async (usuario) => {
 };
 
 // filtro de busqueda
+
 export const filtroBusqueda = async (producto) => {
   try {
     const respuesta = await fetch(URL + "/filtro", {
@@ -208,14 +214,15 @@ export const filtroBusqueda = async (producto) => {
       },
       body: JSON.stringify(producto),
     });
-    const productoFiltrado =await respuesta.json()
+    const productoFiltrado = await respuesta.json();
     return productoFiltrado;
   } catch (error) {
     console.log(error);
   }
 };
 
-//producto salados
+//productos salados
+
 export const listarProductosSaladosAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-salados");
@@ -227,6 +234,7 @@ export const listarProductosSaladosAPI = async () => {
 };
 
 //bebidas calientes
+
 export const listarProductosBebidasCalientesAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-bebida-caliente");
@@ -238,6 +246,7 @@ export const listarProductosBebidasCalientesAPI = async () => {
 };
 
 //bebidas frias
+
 export const listarProductosBebidasFriasAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-bebida-fria");
@@ -249,6 +258,7 @@ export const listarProductosBebidasFriasAPI = async () => {
 };
 
 //dulces
+
 export const listarProductosDulcesAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-dulce");
@@ -260,6 +270,7 @@ export const listarProductosDulcesAPI = async () => {
 };
 
 //ensaladas
+
 export const listarProductosEnsaladasAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-ensaladas");
@@ -271,6 +282,7 @@ export const listarProductosEnsaladasAPI = async () => {
 };
 
 //postres
+
 export const listarProductosPostresAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-postres");
@@ -282,6 +294,7 @@ export const listarProductosPostresAPI = async () => {
 };
 
 //tortas
+
 export const listarProductosTortasAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-tortas");
@@ -293,6 +306,7 @@ export const listarProductosTortasAPI = async () => {
 };
 
 //tartas
+
 export const listarProductosTartasAPI = async () => {
   try {
     const respuesta = await fetch(URL + "-tartas");
@@ -302,5 +316,3 @@ export const listarProductosTartasAPI = async () => {
     console.log(error);
   }
 };
-
-
