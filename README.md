@@ -1,6 +1,5 @@
 # Frontend del Proyecto Final curso fullstack :desktop_computer:	 
-# <p align="center">
- Restaurant Kitchen :hamburger:	</p>
+#  Restaurant: The Kitchen :hamburger:	
 
 Este proyecto es una práctica de un crud donde se aplican los conocimientos tanto en el frontend como el backend, realizado con base de datos Mongo Atlas (en una primera instancia se utilizó de forma local Mongo DB Compass).
 Por otro lado se aplicaron los conceptos aprendidos de React, Java Script, CSS, HTML y sus respectivas librerias.
