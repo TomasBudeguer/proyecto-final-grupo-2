@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { consultarPedidosPersonalesAPI } from "../../helpers/queries";
 import CardPedido from "../pedido/CardPedido";
 
@@ -8,12 +8,17 @@ const Perfil = ({ usuarioLogueado }) => {
   const [pedidosPersonales, setPedidosPersonales] = useState([]);
 
   useEffect(() => {
+    if (!localStorage.getItem("tokenUsuario")) {
+      navegacion("/login");
+    }
     consultarPedidosPersonalesAPI({
       nombreUsuario: usuarioLogueado.nombreUsuario,
     }).then((respuesta) => {
       setPedidosPersonales(respuesta);
     });
   }, []);
+
+  const navegacion = useNavigate();
 
   return (
     <div className="backgroundGral mainSection">
