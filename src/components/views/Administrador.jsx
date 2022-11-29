@@ -45,7 +45,6 @@ const Administrador = () => {
           <Table bordered hover responsive>
             <thead className="bg-warning border-dark">
               <tr>
-                <th>Cod</th>
                 <th>Producto</th>
                 <th>Precio</th>
                 <th>Descripcion</th>
@@ -72,7 +71,6 @@ const Administrador = () => {
           <Table bordered hover responsive>
             <thead className="bg-warning border-dark">
               <tr>
-                <th>Cod</th>
                 <th>Usuario</th>
                 <th>Pedido</th>
                 <th>Estado</th>
@@ -106,10 +104,8 @@ const Administrador = () => {
           <Table bordered hover responsive>
             <thead className="bg-warning border-dark">
               <tr>
-                <th>Cod</th>
                 <th>Nombre de usuario</th>
                 <th>Email</th>
-                <th>Contraseña</th>
               </tr>
             </thead>
             <tbody className="bg-light border-dark">
