@@ -41,10 +41,9 @@ const ItemPedido = ({ pedido, setPedidos }) => {
 
   return (
     <tr>
-      <td>{pedido._id}</td>
       <td>{pedido.nombreUsuario}</td>
       <td>
-        <p className="cortarText">{pedido.pedido}</p>
+        <p className="cortarText">{`${pedido.pedido}`}</p>
       </td>
       <td>{pedido.estado}</td>
       <td>
