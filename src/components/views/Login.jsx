@@ -39,7 +39,7 @@ const Login = ({ setUsuarioLogueado }) => {
                       type="email"
                       placeholder="Ingrese un email"
                       {...register("email", {
-                        required: "El mail es obligatorio",
+                        required: "El email es obligatorio",
                         minLength: {
                           value: 8,
                           message: "Debe ingresar un mínimo de 8 caracteres",
@@ -53,7 +53,7 @@ const Login = ({ setUsuarioLogueado }) => {
                       })}
                     />
                     <Form.Text className="text-danger">
-                      {errors.usuario?.message}
+                      {errors.email?.message}
                     </Form.Text>
                   </Form.Group>
 
