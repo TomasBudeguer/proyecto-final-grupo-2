@@ -14,7 +14,7 @@ const Login = ({ setUsuarioLogueado }) => {
 
   const onSubmit = (data) => {
     login(data).then((respuesta) => {
-      if (respuesta) {
+      if (respuesta.status === 200) {
         localStorage.setItem("tokenUsuario", JSON.stringify(respuesta));
         setUsuarioLogueado(respuesta);
         navigate("/");
